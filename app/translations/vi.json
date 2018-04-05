@@ -3,5 +3,13 @@
   "app.components.Navigation.en": "English",
   "app.components.Navigation.title": "Trang chủ",
   "app.components.Navigation.vi": "Tiếng việt",
-  "app.components.NotFoundPage.header": ""
+  "app.components.NotFoundPage.header": "",
+  "app.components.SearchArea.all": "",
+  "app.components.SearchArea.companies": "",
+  "app.components.SearchArea.patents": "",
+  "app.components.SearchArea.products": "",
+  "app.components.SearchArea.profiles": "",
+  "app.components.SearchArea.projects": "",
+  "app.components.SearchArea.search": "",
+  "app.components.SearchArea.title": ""
 }

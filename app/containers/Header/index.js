@@ -12,10 +12,12 @@ import reducer from './reducer'
 import saga from './saga'
 import messages from './messages'
 import Navigation from '../../components/Navigation'
+import SearchArea from '../../components/SearchArea'
 
 const Header = () => (
   <div>
     <Navigation />
+    <SearchArea />
   </div>
 )
 
