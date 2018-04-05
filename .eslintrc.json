@@ -1,0 +1,66 @@
+{
+  "globals": {
+    "document": true,
+    "window": true,
+    "atob": true,
+    "Blob": true,
+    "Image": true,
+    "localStorage": true,
+    "XMLHttpRequest": true,
+    "navigator": true,
+    "ENV": true,
+    "React": true,
+    "expect": true,
+    "describe": true,
+    "shallow": true,
+    "mount": true,
+    "render": true,
+    "it": true,
+    "jest": true,
+    "alert": true,
+    "toJson": true,
+    "FormData": true,
+    "PropTypes": true,
+    "Headers": true,
+    "fetch": true,
+    "mock": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-filename-extension": 0,
+    "react/prop-types": 0,
+    "react/require-default-props": 0,
+    "react/forbid-prop-types": 0,
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "react/no-danger": 0,
+    "jsx-a11y/label-has-for": [
+      1,
+      {
+        "required": {
+          "some": [ "nesting", "id" ]
+        }
+      }
+    ],
+    "jsx-a11y/no-autofocus": 0,
+    "semi": 0,
+    "jsx-quotes": 0,
+    "object-curly-newline": 0,
+    "arrow-parens": 0,
+    "no-confusing-arrow": 0,
+    "function-paren-newline": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-dynamic-require": 0,
+    "global-require": 0,
+    "comma-dangle": ["error", {
+        "arrays":  "only-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore"
+    }]
+  }
+}
