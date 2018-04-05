@@ -13,7 +13,7 @@ beautifully for data fetching, concurrent computations and a lot more.
 > This adds a level of indirection that is unnecessary for simple apps, but make
   it more easy to scale complex applications. You can now publish widget1 and
   widget2 to different npm repositories so that they never have to know about
-  each others, without having them to share a global registry of actions. The 2
+  each others, without having them to share a globals registry of actions. The 2
   widgets are now bounded contexts that can live separately. They do not need
   each others to be consistent and can be reused in other apps as well. **The saga
   is the coupling point between the two widgets that coordinate them in a
@@ -46,7 +46,7 @@ export default function* rootSaga() {
 }
 ```
 
-Then, in your `index.js`, use a decorator to inject the root saga:
+Then, in your `components.js`, use a decorator to inject the root saga:
 
 ```JS
 import injectSaga from 'utils/injectSaga';

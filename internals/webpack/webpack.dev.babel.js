@@ -105,7 +105,7 @@ function dependencyHandlers() {
     return [
       new webpack.DllReferencePlugin({
         context: process.cwd(),
-        manifest: require(manifestPath), // eslint-disable-line global-require
+        manifest: require(manifestPath), // eslint-disable-line globals-require
       }),
     ];
   }
@@ -126,7 +126,7 @@ function dependencyHandlers() {
 
     return new webpack.DllReferencePlugin({
       context: process.cwd(),
-      manifest: require(manifestPath), // eslint-disable-line global-require
+      manifest: require(manifestPath), // eslint-disable-line globals-require
     });
   });
 }

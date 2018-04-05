@@ -1,7 +1,9 @@
 import { fromJS } from 'immutable'
 
-import { CHANGE_LOCALE } from './constants'
-import { DEFAULT_LOCALE } from '../App/constants'
+import {
+  CHANGE_LOCALE,
+  DEFAULT_LOCALE,
+} from './constants'
 
 const initialState = fromJS({
   locale: DEFAULT_LOCALE,

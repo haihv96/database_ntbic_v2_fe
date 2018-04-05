@@ -5,7 +5,7 @@ import {
 } from '../selectors';
 
 describe('selectLanguage', () => {
-  it('should select the global state', () => {
+  it('should select the globals state', () => {
     const globalState = fromJS({});
     const mockedState = fromJS({
       language: globalState,

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-
 import HomePage from '../HomePage/Loadable'
 import NotFoundPage from '../NotFoundPage/Loadable'
+import 'bootstrap/dist/css/bootstrap.css'
 
 const App = () => (
   <div>

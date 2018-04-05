@@ -1,4 +1,7 @@
 {
   "app.components.HomePage.header": "",
+  "app.components.Navigation.en": "English",
+  "app.components.Navigation.title": "Trang chủ",
+  "app.components.Navigation.vi": "Tiếng việt",
   "app.components.NotFoundPage.header": ""
 }

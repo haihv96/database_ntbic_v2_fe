@@ -92,7 +92,7 @@ When you run `npm start`, a server will be launched in your terminal for develop
 
 Webpack requires an entry point to your application. Think of it as a door to your source code. In this boilerplate [`app/app.js`](https://github.com/react-boilerplate/react-boilerplate/blob/master/app/app.js) is that entry point. Webpack will access the entire app from this file, transpile the application into ES5 and create small chunks of transpiled code. Only the required chunks will be loaded in the browser so that you don't have to worry about the size of your application.
 
-`app/app.js` is one of the biggest files of the boilerplate. It contains all the global setup to make sure your app runs smoothly. Let's break its contents down:
+`app/app.js` is one of the biggest files of the boilerplate. It contains all the globals setup to make sure your app runs smoothly. Let's break its contents down:
 
 - `babel-polyfill` is imported. This enables cool stuff like generator functions, `Promise`s, etc.
 - A redux `store` is instantiated.

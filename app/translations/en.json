@@ -1,4 +1,7 @@
 {
   "app.components.HomePage.header": "This is HomePage component!",
+  "app.components.Navigation.en": "English",
+  "app.components.Navigation.title": "Home",
+  "app.components.Navigation.vi": "Vietnamese",
   "app.components.NotFoundPage.header": "This is NotFoundPage component!"
 }
