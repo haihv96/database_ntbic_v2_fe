@@ -241,7 +241,7 @@
     "react-redux": "5.0.5",
     "react-router-dom": "4.1.1",
     "react-router-redux": "5.0.0-alpha.6",
-    "react-svg-piechart": "^2.0.3",
+    "react-slick": "^0.23.1",
     "reactstrap": "^5.0.0",
     "redux": "3.6.0",
     "redux-form": "^7.3.0",
@@ -249,6 +249,7 @@
     "redux-saga": "0.15.3",
     "reselect": "3.0.1",
     "sanitize.css": "4.1.0",
+    "slick-carousel": "^1.8.1",
     "styled-components": "2.0.0",
     "warning": "3.0.0",
     "whatwg-fetch": "2.0.3"
