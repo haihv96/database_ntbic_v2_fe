@@ -14,8 +14,8 @@ const ProfileCardSlider = () => (
       title="Contemplative Reptile"
     />
     <CardContent>
-      <Typography variant="headline" component="h2">
-        Lizard
+      <Typography variant="title">
+        Lizard Lizard
       </Typography>
       <Typography component="p">
         Lizards are a widespread group

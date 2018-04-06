@@ -33,4 +33,8 @@ export default defineMessages({
     id: 'app.components.SearchArea.search',
     defaultMessage: 'Search',
   },
+  placeholder: {
+    id: 'app.components.SearchArea.placeholder',
+    defaultMessage: 'Search data ...',
+  },
 })

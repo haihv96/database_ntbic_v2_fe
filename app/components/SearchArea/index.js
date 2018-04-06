@@ -43,7 +43,12 @@ class SearchArea extends React.PureComponent {
           <FormattedMessage {...messages.title} />
         </Title>
         <CustomForm onSubmit={this.handleSubmit}>
-          <MaterialInput onChange={this.handleChangeQuery} />
+          <FormattedMessage {...messages.placeholder} >
+            {placeholder => <MaterialInput
+              onChange={this.handleChangeQuery}
+              placeholder={placeholder}
+            />}
+          </FormattedMessage>
           <MaterialSelect value={type} onChange={this.handleChangeType}>
             <MenuItem value="all">
               <em><FormattedMessage {...messages.all} /></em>

@@ -33,10 +33,9 @@ const data = {
     options: {
       legend: 'right',
       title: 'Chuyên gia: ' + 23529,
-      is3D: true,
       chartArea: {
-        width: '90%',
-        height: '90%',
+        width: '80%',
+        height: '80%',
       },
     },
   },
@@ -52,21 +51,14 @@ class PieChart extends React.PureComponent { // eslint-disable-line react/prefer
       <Wrapper>
         <CateTitle title={<FormattedMessage {...messages.header} />} />
         <PieChartList>
-          <PieChartItem>
+          <PieChartItem className="col-md-4">
             <Chart
               chartType="PieChart"
               data={data.profiles.data}
               options={data.profiles.options}
             />
           </PieChartItem>
-          <PieChartItem>
-            <Chart
-              chartType="PieChart"
-              data={data.profiles.data}
-              options={data.profiles.options}
-            />
-          </PieChartItem>
-          <PieChartItem>
+          <PieChartItem className="col-md-4">
             <Chart
               chartType="PieChart"
               data={data.profiles.data}
@@ -75,14 +67,21 @@ class PieChart extends React.PureComponent { // eslint-disable-line react/prefer
           </PieChartItem>
         </PieChartList>
         <PieChartList>
-          <PieChartItem>
+          <PieChartItem className="col-md-4">
             <Chart
               chartType="PieChart"
               data={data.profiles.data}
               options={data.profiles.options}
             />
           </PieChartItem>
-          <PieChartItem>
+          <PieChartItem className="col-md-4">
+            <Chart
+              chartType="PieChart"
+              data={data.profiles.data}
+              options={data.profiles.options}
+            />
+          </PieChartItem>
+          <PieChartItem className="col-lg-4">
             <Chart
               chartType="PieChart"
               data={data.profiles.data}

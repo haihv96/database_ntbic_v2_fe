@@ -11,7 +11,10 @@ const PieChartList = styled.div `
 `
 
 const PieChartItem = styled.div `
-  margin: 10px 0;
+  margin: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `
 
 export {

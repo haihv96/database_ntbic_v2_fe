@@ -50,7 +50,7 @@ const MaterialInput = styled(Input)`
 
 const MaterialSelect = styled(Select)`
   background: ${vars.white};
-  width: 257px;
+  max-width: 200px;
   padding: 3px 0 9px 10px;
   margin: 0 5px 5px 0;
 `

@@ -14,13 +14,16 @@
   "app.components.Navigation.title": "Trang chủ",
   "app.components.Navigation.vi": "Tiếng việt",
   "app.components.NotFoundPage.header": "",
+  "app.components.ProfileCardSlider.header": "",
   "app.components.SearchArea.all": "Tất cả dữ liệu KH&CN",
   "app.components.SearchArea.companies": "Dữ liệu doanh nghiệp KH&CN",
   "app.components.SearchArea.patents": "Dữ liệu phát minh KH&CN",
+  "app.components.SearchArea.placeholder": "Tìm kiếm dữ liệu ...",
   "app.components.SearchArea.products": "Dữ liệu sản phẩm KH&CN",
   "app.components.SearchArea.profiles": "Dữ liệu chuyên gia KH&CN",
   "app.components.SearchArea.projects": "Dữ liệu đề tài dự án KH&CN",
   "app.components.SearchArea.search": "Tìm kiếm",
   "app.components.SearchArea.title": "Ngân hàng thông tin khoa học và công nghệ",
-  "app.containers.PieChart.header": "Thống kê dữ liệu KH&CN"
+  "app.containers.PieChart.header": "Thống kê dữ liệu KH&CN",
+  "app.containers.ProfileSlider.header": ""
 }
