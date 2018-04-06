@@ -5,17 +5,19 @@ import {
   Container,
   Main,
 } from '../../globals/components'
-import Header from '../Header'
+import Navigation from '../../components/Navigation'
+import SearchArea from '../../components/SearchArea'
 import PieChar from '../PieChart'
+import Footer from '../../components/Footer'
 
 const HomePage = () => (
   <Container>
-    <Header />
+    <Navigation />
+    <SearchArea />
     <Main>
-      <div className="container-fluid">
-        <PieChar />
-      </div>
+      <PieChar />
     </Main>
+    <Footer />
   </Container>
 )
 

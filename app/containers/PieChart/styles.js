@@ -11,7 +11,7 @@ const PieChartList = styled.div `
 `
 
 const PieChartItem = styled.div `
-  margin: 10px;
+  margin: 10px 0;
 `
 
 export {

@@ -6,12 +6,12 @@ import Select from 'material-ui/Select'
 import Button from 'material-ui/Button'
 
 const Wrapper = styled.div `
-  margin-top: 10px;
   background-image: url(${banner});
   background-repeat: no-repeat;
   height: 300px;
   padding: 15px;
   background-size: cover;
+  border-top: 10px solid ${vars.white};
   @media only screen and (max-width: 768px)  {
     height: 400px;
   }
@@ -56,7 +56,9 @@ const MaterialSelect = styled(Select)`
 `
 
 const MaterialButton = styled(Button) `
-  border-radius: 0;
+  && {
+    border-radius: 0;
+  }
   max-height: 48px;
   max-width: 120px;
   && {

@@ -2,8 +2,10 @@ import styled from 'styled-components'
 import vars from './vars'
 
 const Container = styled.div ``
-const Main = styled.div ``
-const Header = styled.div ``
+const Main = styled.div `
+  width: 90%;
+  margin: auto;
+`
 const TextField = styled.span `
   color: ${props => props.color ? vars[props.color] : vars['white']};
   font-weight: ${props => props.bold ? 'bold' : 'normal'};
@@ -15,6 +17,5 @@ const TextField = styled.span `
 export {
   Container,
   Main,
-  Header,
   TextField,
 }

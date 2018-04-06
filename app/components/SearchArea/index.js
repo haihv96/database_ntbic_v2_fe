@@ -18,6 +18,7 @@ import {
   MaterialInput,
   MaterialSelect,
   MaterialButton,
+  SmallWhiteSpace,
 } from './styles'
 
 class SearchArea extends React.PureComponent {
