@@ -35,7 +35,7 @@ class SearchArea extends React.PureComponent {
   }
 
   render() {
-    const { type, query } = this.props
+    const { type } = this.props
     return (
       <Wrapper>
         <Title>

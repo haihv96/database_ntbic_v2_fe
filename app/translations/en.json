@@ -11,5 +11,6 @@
   "app.components.SearchArea.profiles": "",
   "app.components.SearchArea.projects": "",
   "app.components.SearchArea.search": "",
-  "app.components.SearchArea.title": ""
+  "app.components.SearchArea.title": "",
+  "app.containers.PieChart.header": ""
 }

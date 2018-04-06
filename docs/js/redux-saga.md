@@ -38,7 +38,7 @@ import { takeLatest, call, put, select } from 'redux-saga/effects';
 
 // Root saga
 export default function* rootSaga() {
-  // if necessary, start multiple sagas at once with `all` 
+  // if necessary, start multiple sagas at once with `all`
   yield [
     takeLatest(LOAD_REPOS, getRepos),
     takeLatest(LOAD_USERS, getUsers),
@@ -46,7 +46,7 @@ export default function* rootSaga() {
 }
 ```
 
-Then, in your `components.js`, use a decorator to inject the root saga:
+Then, in your `index.js`, use a decorator to inject the root saga:
 
 ```JS
 import injectSaga from 'utils/injectSaga';
@@ -65,7 +65,7 @@ export default compose(
 
 A `mode` argument can be one of three constants (import them from `utils/constants`):
 
-- `RESTART_ON_REMOUNT` (default value)—starts a saga when a component is being mounted 
+- `RESTART_ON_REMOUNT` (default value)—starts a saga when a component is being mounted
 and cancels with `task.cancel()` on component un-mount for improved performance;
 - `DAEMON`—starts a saga on component mount and never cancels it or starts again;
 - `ONCE_TILL_UNMOUNT`—behaves like `RESTART_ON_REMOUNT` but never runs the saga again.

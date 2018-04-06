@@ -17,7 +17,7 @@ If you really want to get rid of it, you will have to delete its traces from sev
 
 1. Remove two files: `injectSaga.js` and `sagaInjectors.js`.
 
-**app/containers/\*/components.js**
+**app/containers/\*/index.js**
 
 Clean up containers that inject a dynamic saga
 

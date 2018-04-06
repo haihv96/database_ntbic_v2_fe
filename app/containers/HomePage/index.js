@@ -5,12 +5,16 @@ import {
   Container,
   Main,
 } from '../../globals/components'
-import Header from '../../containers/Header'
+import Header from '../Header'
+import PieChar from '../PieChart'
 
 const HomePage = () => (
   <Container>
     <Header />
     <Main>
+      <div className="container-fluid">
+        <PieChar />
+      </div>
     </Main>
   </Container>
 )

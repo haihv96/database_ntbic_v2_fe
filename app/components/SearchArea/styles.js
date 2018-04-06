@@ -57,8 +57,8 @@ const MaterialSelect = styled(Select)`
 
 const MaterialButton = styled(Button) `
   border-radius: 0;
-  height: 48px;
-  width: 60px;
+  max-height: 48px;
+  max-width: 120px;
   && {
     font-weight: bold;
   }
