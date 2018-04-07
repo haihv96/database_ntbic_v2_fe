@@ -30,7 +30,7 @@ const Footer = () => (
       </Main>
     </WrapperInfo>
     <WrapperCopy>
-      <Text>Copyright &copy; 2016 csdl.ntbic.com</Text>
+      <Text>Copyright &copy; 2018 csdl.ntbic.com</Text>
     </WrapperCopy>
   </Wrapper>
 )

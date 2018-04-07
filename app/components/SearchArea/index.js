@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import { FormattedMessage } from 'react-intl'
+import { FormattedMessage, injectIntl } from 'react-intl'
 import { withRouter } from 'react-router-dom'
 import messages from './messages'
 import { MenuItem } from 'material-ui/Menu'
@@ -36,19 +36,17 @@ class SearchArea extends React.PureComponent {
   }
 
   render() {
-    const { type } = this.props
+    const { type, intl } = this.props
     return (
       <Wrapper>
         <Title>
           <FormattedMessage {...messages.title} />
         </Title>
         <CustomForm onSubmit={this.handleSubmit}>
-          <FormattedMessage {...messages.placeholder} >
-            {placeholder => <MaterialInput
-              onChange={this.handleChangeQuery}
-              placeholder={placeholder}
-            />}
-          </FormattedMessage>
+          <MaterialInput
+            onChange={this.handleChangeQuery}
+            placeholder={intl.formatMessage(messages.placeholder)}
+          />
           <MaterialSelect value={type} onChange={this.handleChangeType}>
             <MenuItem value="all">
               <em><FormattedMessage {...messages.all} /></em>
@@ -94,4 +92,5 @@ export default compose(
   withReducer,
   withConnect,
   withRouter,
+  injectIntl,
 )(SearchArea)

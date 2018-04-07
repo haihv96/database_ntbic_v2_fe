@@ -1,1 +1,3 @@
-export const DEFAULT_ACTION = 'app/PieChart/DEFAULT_ACTION'
+export const LOAD_ANALYSIS = 'app/PieChart/LOAD_ANALYSIS'
+export const LOAD_ANALYSIS_SUCCESS = 'app/PieChart/LOAD_ANALYSIS_SUCCESS'
+export const LOAD_ANALYSIS_ERROR = 'app/PieChart/LOAD_ANALYSIS_ERROR'

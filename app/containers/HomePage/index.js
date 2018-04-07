@@ -8,7 +8,7 @@ import {
 import Navigation from '../../components/Navigation'
 import SearchArea from '../../components/SearchArea'
 import PieChar from '../PieChart'
-import ProfileSlider from '../ProfileSlider'
+import ProfileSlider from '../HotProfileSlider'
 import Footer from '../../components/Footer'
 
 const HomePage = () => (

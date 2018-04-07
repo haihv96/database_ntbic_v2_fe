@@ -24,6 +24,11 @@
   "app.components.SearchArea.projects": "",
   "app.components.SearchArea.search": "",
   "app.components.SearchArea.title": "",
+  "app.containers.PieChart.companies": "",
   "app.containers.PieChart.header": "",
-  "app.containers.ProfileSlider.header": ""
+  "app.containers.PieChart.patents": "",
+  "app.containers.PieChart.products": "",
+  "app.containers.PieChart.profiles": "",
+  "app.containers.PieChart.projects": "",
+  "app.containers.ProfileSlider.cateTitle": ""
 }

@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { fadeIn } from 'react-animations'
 import Slider from 'react-slick'
 import vars from '../../globals/vars'
 
@@ -7,7 +8,9 @@ const Wrapper = styled.div `
 `
 
 const SliderWrapper = styled.div `
-  background: ${vars.dark};
+  border-left: 1px dotted ${vars.blurOrange};
+  border-right: 1px dotted ${vars.blurOrange};
+  animation: ${ keyframes`${fadeIn}`} 0.8s ease-in-out;
 `
 
 const CustomSlider = styled(Slider) `

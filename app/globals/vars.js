@@ -8,4 +8,5 @@ export default {
   lightGrey: '#e0e0e0',
   grey: '#ccc',
   darkGrey: '#858585',
+  blurOrange: '#ffc95f',
 }

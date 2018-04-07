@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { fadeIn } from 'react-animations'
 
 const Wrapper = styled.div `
   margin-top: 5px;
@@ -17,8 +18,13 @@ const PieChartItem = styled.div `
   justify-content: center;
 `
 
+const WrapperPieChart = styled.div `
+  animation: ${ keyframes`${fadeIn}`} 1s ease-in-out;
+`
+
 export {
   Wrapper,
   PieChartList,
   PieChartItem,
+  WrapperPieChart,
 }

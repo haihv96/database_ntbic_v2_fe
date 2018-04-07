@@ -1,25 +1,25 @@
 import { fromJS } from 'immutable'
 import {
-  LOAD_ANALYSIS,
-  LOAD_ANALYSIS_SUCCESS,
-  LOAD_ANALYSIS_ERROR,
+  LOAD_HOT_PROFILES,
+  LOAD_HOT_PROFILES_SUCCESS,
+  LOAD_HOT_PROFILES_ERROR,
 } from './constants'
 
 const initialState = fromJS({
   loading: false,
-  data: {},
+  data: [],
   error: null,
 })
 
-const pieChartReducer = (state = initialState, action) => {
+const hotProfileSliderReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_ANALYSIS:
+    case LOAD_HOT_PROFILES:
       return state.set('loading', true)
-        .set('data', fromJS({}))
-    case LOAD_ANALYSIS_SUCCESS:
+        .set('data', fromJS([]))
+    case LOAD_HOT_PROFILES_SUCCESS:
       return state.set('loading', false)
         .set('data', fromJS(action.data))
-    case LOAD_ANALYSIS_ERROR:
+    case LOAD_HOT_PROFILES_ERROR:
       return state.set('loading', false)
         .set('error', action.error)
     default:
@@ -27,4 +27,5 @@ const pieChartReducer = (state = initialState, action) => {
   }
 }
 
-export default pieChartReducer
+export default hotProfileSliderReducer
+

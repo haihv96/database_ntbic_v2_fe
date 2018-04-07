@@ -1,9 +1,19 @@
 import {
-  DEFAULT_ACTION,
+  LOAD_ANALYSIS,
+  LOAD_ANALYSIS_SUCCESS,
+  LOAD_ANALYSIS_ERROR,
 } from './constants'
 
-export function defaultAction() {
-  return {
-    type: DEFAULT_ACTION,
-  }
-}
+export const loadAnalysis = () => ({
+  type: LOAD_ANALYSIS,
+})
+
+export const analysisLoaded = data => ({
+  type: LOAD_ANALYSIS_SUCCESS,
+  data,
+})
+
+export const analysisLoadingError = err => ({
+  type: LOAD_ANALYSIS_ERROR,
+  err,
+})

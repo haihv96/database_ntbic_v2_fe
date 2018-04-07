@@ -1,12 +1,18 @@
-import { createSelector } from 'reselect';
+import { createSelector } from 'reselect'
 
-const pieChartState = (state) => state.get('pieChart')
+const pieChartState = state => state.get('pieChart')
 
-const makeSelectPieChart = () => createSelector(
+const selectPieChartLoading = () => createSelector(
   pieChartState,
-  state => substate.toJS()
+  state => state.get('loading')
 )
 
-export default makeSelectPieChart
+const selectPieChartData = () => createSelector(
+  pieChartState,
+  state => state.get('data').toJS()
+)
+
 export {
+  selectPieChartLoading,
+  selectPieChartData,
 }

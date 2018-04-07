@@ -1,29 +1,25 @@
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
-import messages from './messages'
+import PropTypes from 'prop-types'
 import { CardContent } from 'material-ui/Card'
-import Button from 'material-ui/Button'
-import Typography from 'material-ui/Typography'
-import anonUser from '../../images/anon_user.png'
-import { CustomCardMedia, CustomCard } from './styles'
+import { CustomCardMedia, CustomCard, Name, Agency } from './styles'
 
-const ProfileCardSlider = () => (
+const ProfileCardSlider = ({ image, name, agency }) => (
   <CustomCard>
     <CustomCardMedia
-      image={anonUser}
-      title="Contemplative Reptile"
+      image={image}
+      title={name}
     />
     <CardContent>
-      <Typography variant="title">
-        Lizard Lizard
-      </Typography>
-      <Typography component="p">
-        Lizards are a widespread group
-      </Typography>
+      <Name>{name}</Name>
+      <Agency>{agency}</Agency>
     </CardContent>
   </CustomCard>
 )
 
-ProfileCardSlider.propTypes = {}
+ProfileCardSlider.propTypes = {
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  agency: PropTypes.string.isRequired,
+}
 
 export default ProfileCardSlider
