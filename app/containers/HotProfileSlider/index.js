@@ -38,7 +38,7 @@ export class HotProfileSlider extends React.PureComponent {
       <CustomSlider {...settingSlider}>
         {
           _.map(data, value => (
-            <ProfileCardSlider {...value} />
+            <ProfileCardSlider key={value.id} {...value} />
           ))
         }
       </CustomSlider>

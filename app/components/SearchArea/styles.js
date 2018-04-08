@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import banner from '../../images/banner.jpg'
+import banner from '../../images/banner.png'
 import vars from '../../globals/vars'
 import Input from 'material-ui/Input'
 import Select from 'material-ui/Select'
@@ -8,16 +8,21 @@ import Button from 'material-ui/Button'
 const Wrapper = styled.div `
   background-image: url(${banner});
   background-repeat: no-repeat;
-  height: 300px;
+  background-position: center center;
+  height: 400px;
   padding: 15px;
-  background-size: cover;
+  background-size: 100% 100%;
   border-top: 10px solid ${vars.white};
-  @media only screen and (max-width: 768px)  {
-    height: 400px;
-  }
   @media only screen and (max-width: 480px)  {
     height: 450px;
   }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const Container = styled.div `
+  width: 100%;
 `
 
 const Title = styled.div`
@@ -25,7 +30,6 @@ const Title = styled.div`
   font-size: 32px;
   font-weight: bold;
   color: ${vars.white};
-  padding-top: 40px;
 `
 
 const CustomForm = styled.form`
@@ -40,9 +44,9 @@ const CustomForm = styled.form`
 
 const MaterialInput = styled(Input)`
   background: ${vars.white};
-  height: 48px;
   padding-left: 10px;
-  margin: 0 3px 5px 0;
+  min-height: 45px;
+  margin: 0px 3px 8px 0;
   @media only screen and (min-width: 768px)  {
     width: 35%;
   }
@@ -51,19 +55,22 @@ const MaterialInput = styled(Input)`
 const MaterialSelect = styled(Select)`
   background: ${vars.white};
   max-width: 200px;
-  padding: 3px 0 9px 10px;
-  margin: 0 5px 5px 0;
+  margin: 0px 3px 8px 0;
+  & > div > div {
+    padding-left: 10px;
+  }
+  && {
+    line-height: 32px;
+  }
 `
 
 const MaterialButton = styled(Button) `
-  && {
-    border-radius: 0;
-  }
-  max-height: 48px;
+  height: 44px;
   max-width: 120px;
   && {
     font-weight: bold;
-  }
+    border-radius: 0;
+ }
 `
 
 export {
@@ -73,4 +80,5 @@ export {
   MaterialInput,
   MaterialSelect,
   MaterialButton,
+  Container,
 }

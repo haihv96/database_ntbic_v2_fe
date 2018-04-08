@@ -4,7 +4,8 @@ import Typography from 'material-ui/Typography'
 import vars from '../../globals/vars'
 
 const CustomCard = styled(Card) `
-  border-right: 1px dotted ${vars.blurOrange};
+  border: 1px dashed ${vars.grey};
+  border-left: 0;
   && {
     box-shadow: none;
     border-radius: 0;
@@ -17,7 +18,6 @@ const CustomCardMedia = styled(CardMedia) `
   height: 143px;
   width: 110px;
   margin: 0 auto;
-  border-radius: 50%;
 `
 
 const Name = styled(Typography)`

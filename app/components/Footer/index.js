@@ -1,13 +1,13 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import messages from './messages'
-import {Wrapper, WrapperInfo, WrapperCopy, Text } from './styles'
+import { Wrapper, WrapperInfo, WrapperCopy, Text } from './styles'
 import { Main } from '../../globals/components'
 
 const Footer = () => (
   <Wrapper>
     <WrapperInfo>
-      <Main className="container-fluid">
+      <Main>
         <div className="row">
           <div className="col-md-5">
             <Text><FormattedMessage {...messages.locationName} /></Text>
@@ -27,6 +27,7 @@ const Footer = () => (
             <Text><FormattedMessage {...messages.intro} /></Text>
           </div>
         </div>
+        <div className="clearfix" />
       </Main>
     </WrapperInfo>
     <WrapperCopy>

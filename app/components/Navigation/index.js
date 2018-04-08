@@ -8,7 +8,6 @@ import { makeSelectLocale } from '../../containers/LanguageProvider/selectors'
 import { changeLocale } from '../../containers/LanguageProvider/actions'
 import {
   Collapse,
-  Navbar,
   NavbarBrand,
   Nav,
   UncontrolledDropdown,
@@ -60,8 +59,8 @@ class Navigation extends React.PureComponent {
       <CustomNavbar expand="md">
         <Link to="/">
           <NavbarBrand>
-            <TextField color="white" normal>
-              <FormattedMessage {...messages.title} />
+            <TextField color="white" bold size={30}>
+              NTBIC
             </TextField>
           </NavbarBrand>
         </Link>

@@ -11,7 +11,7 @@ const WrapperInfo = styled.div `
 `
 
 const WrapperCopy = styled.div `
-  padding: 20px;
+  padding: 20px 0 10px 0;
   text-align: center;
   background: ${vars.black};
 `

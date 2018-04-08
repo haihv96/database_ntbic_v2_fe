@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import vars from '../../globals/vars'
+import bgImg from '../../images/bgtop.png'
 import {
   DropdownToggle,
   DropdownMenu,
@@ -9,7 +10,8 @@ import {
 } from 'reactstrap'
 
 const CustomNavbar = styled(Navbar) `
-  background: ${vars.blue};
+  background: ${vars.lightBlue};
+  background-image: url(${bgImg});
   && {
     @media only screen and (min-width: 768px)  {
       height: 55px;

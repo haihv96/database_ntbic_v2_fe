@@ -18,8 +18,9 @@ import {
   MaterialInput,
   MaterialSelect,
   MaterialButton,
-  SmallWhiteSpace,
+  Container,
 } from './styles'
+import SearchIcon from 'react-icons/lib/md/search'
 
 class SearchArea extends React.PureComponent {
   handleChangeType = e => {
@@ -32,35 +33,37 @@ class SearchArea extends React.PureComponent {
 
   handleSubmit = () => {
     const { history, type, query } = this.props
-    history.push(`/search?type=${type}&query=${query}`)
+    history.push(`/search/${type}/?query=${query}`)
   }
 
   render() {
     const { type, intl } = this.props
     return (
       <Wrapper>
-        <Title>
-          <FormattedMessage {...messages.title} />
-        </Title>
-        <CustomForm onSubmit={this.handleSubmit}>
-          <MaterialInput
-            onChange={this.handleChangeQuery}
-            placeholder={intl.formatMessage(messages.placeholder)}
-          />
-          <MaterialSelect value={type} onChange={this.handleChangeType}>
-            <MenuItem value="all">
-              <em><FormattedMessage {...messages.all} /></em>
-            </MenuItem>
-            <MenuItem value="profiles"><FormattedMessage {...messages.profiles} /></MenuItem>
-            <MenuItem value="projects"><FormattedMessage {...messages.projects} /></MenuItem>
-            <MenuItem value="patents"><FormattedMessage {...messages.patents} /></MenuItem>
-            <MenuItem value="products"><FormattedMessage {...messages.products} /></MenuItem>
-            <MenuItem value="companies"><FormattedMessage {...messages.companies} /></MenuItem>
-          </MaterialSelect>
-          <MaterialButton type="submit" variant="raised" color="primary">
-            <FormattedMessage {...messages.search} />
-          </MaterialButton>
-        </CustomForm>
+        <Container>
+          <Title>
+            <FormattedMessage {...messages.title} />
+          </Title>
+          <CustomForm onSubmit={this.handleSubmit}>
+            <MaterialInput
+              onChange={this.handleChangeQuery}
+              placeholder={intl.formatMessage(messages.placeholder)}
+            />
+            <MaterialSelect value={type} onChange={this.handleChangeType}>
+              <MenuItem value="all">
+                <em><FormattedMessage {...messages.all} /></em>
+              </MenuItem>
+              <MenuItem value="profiles"><FormattedMessage {...messages.profiles} /></MenuItem>
+              <MenuItem value="projects"><FormattedMessage {...messages.projects} /></MenuItem>
+              <MenuItem value="patents"><FormattedMessage {...messages.patents} /></MenuItem>
+              <MenuItem value="products"><FormattedMessage {...messages.products} /></MenuItem>
+              <MenuItem value="companies"><FormattedMessage {...messages.companies} /></MenuItem>
+            </MaterialSelect>
+            <MaterialButton type="submit" variant="raised" color="primary">
+              <SearchIcon size={20} /><FormattedMessage {...messages.search} />
+            </MaterialButton>
+          </CustomForm>
+        </Container>
       </Wrapper>
     )
   }
