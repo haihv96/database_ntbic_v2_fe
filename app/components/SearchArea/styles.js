@@ -47,6 +47,9 @@ const MaterialInput = styled(Input)`
   padding-left: 10px;
   min-height: 45px;
   margin: 0px 3px 8px 0;
+  && {
+    line-height: 0;
+  }
   @media only screen and (min-width: 768px)  {
     width: 35%;
   }
@@ -70,6 +73,11 @@ const MaterialButton = styled(Button) `
   && {
     font-weight: bold;
     border-radius: 0;
+    background-color: ${vars.blue};
+    &:hover {
+      background-color: ${vars.lightBlue};
+      box-shadow: 0 0 1px 1px ${vars.white};
+    }
  }
 `
 

@@ -10,14 +10,18 @@ import makeSelectSearchAll from './selectors'
 import reducer from './reducer'
 import saga from './saga'
 import messages from './messages'
+import SearchInput from '../../SearchInput'
+import { Main } from '../../../globals/components'
 
 export class SearchAll extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div>
-
+        <Main>
+          <SearchInput />
+        </Main>
       </div>
-    );
+    )
   }
 }
 

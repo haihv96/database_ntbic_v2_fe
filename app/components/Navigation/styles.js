@@ -10,7 +10,7 @@ import {
 } from 'reactstrap'
 
 const CustomNavbar = styled(Navbar) `
-  background: ${vars.lightBlue};
+  background: ${vars.midBlue};
   background-image: url(${bgImg});
   && {
     @media only screen and (min-width: 768px)  {
@@ -27,7 +27,7 @@ const CustomDropdownToggle = styled(DropdownToggle) `
   }
   &:hover, &:active {
     color: ${vars.white};
-    background: ${vars.lightBlue};
+    background: ${vars.midBlue};
   }
 `
 
@@ -48,7 +48,7 @@ const CustomDropdownItem = styled(DropdownItem) `
       background: ${vars.lightGrey};
     }
     &:active {
-      background: ${vars.lightBlue};
+      background: ${vars.blue};
     }
   }
  
