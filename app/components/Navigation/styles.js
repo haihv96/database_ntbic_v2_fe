@@ -32,20 +32,26 @@ const CustomDropdownToggle = styled(DropdownToggle) `
 `
 
 const CustomDropdownMenu = styled(DropdownMenu) `
-  border-radius: 0;
-  padding: 0;
+  && {
+    padding: 0;
+    border-radius: 0;
+  }
 `
 
 const CustomDropdownItem = styled(DropdownItem) `
   padding: 10px;
   cursor: pointer;
   font-size: 18px;
-  &:hover {
-    background: ${vars.lightGrey};
+  height: 55px;
+  && {
+    &:hover {
+      background: ${vars.lightGrey};
+    }
+    &:active {
+      background: ${vars.lightBlue};
+    }
   }
-   &:active {
-    background: ${vars.lightBlue};
-  }
+ 
 `
 
 const CustomNavbarToggler = styled(NavbarToggler) `

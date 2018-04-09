@@ -30,7 +30,7 @@ const options = (title = '') => {
 }
 
 class PieChart extends React.PureComponent {
-  state = { data: this.props.data }
+  state = { data: {} }
 
   static propTypes = {
     loading: PropTypes.bool.isRequired,

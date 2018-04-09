@@ -2,7 +2,7 @@ export const settingSlider = {
   speed: 500,
   dots: true,
   slidesToShow: 6,
-  slidesToScroll: 1,
+  slidesToScroll: 2,
   autoplay: true,
   autoplaySpeed: 5000,
   responsive: [
