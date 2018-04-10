@@ -11,10 +11,8 @@
   "app.components.Footer.locationHotline": "",
   "app.components.Footer.locationName": "",
   "app.components.Navigation.en": "English",
-  "app.components.Navigation.title": "Home",
   "app.components.Navigation.vi": "Vietnamese",
   "app.components.NotFoundPage.header": "This is NotFoundPage component!",
-  "app.components.ProfileCardSlider.header": "",
   "app.components.SearchArea.all": "",
   "app.components.SearchArea.companies": "",
   "app.components.SearchArea.patents": "",
@@ -24,6 +22,14 @@
   "app.components.SearchArea.projects": "",
   "app.components.SearchArea.search": "",
   "app.components.SearchArea.title": "",
+  "app.containers.FormSearchInput.DataTypeSelect.allDataType": "",
+  "app.containers.FormSearchInput.DataTypeSelect.companies": "",
+  "app.containers.FormSearchInput.DataTypeSelect.patents": "",
+  "app.containers.FormSearchInput.DataTypeSelect.products": "",
+  "app.containers.FormSearchInput.DataTypeSelect.profiles": "",
+  "app.containers.FormSearchInput.DataTypeSelect.projects": "",
+  "app.containers.FormSearchInput.ProvinceSelect.default": "",
+  "app.containers.FormSearchInput.QueryInput.placeholder": "",
   "app.containers.HotProfileSlider.cateTitle": "",
   "app.containers.PieChart.companies": "",
   "app.containers.PieChart.header": "",
@@ -31,5 +37,6 @@
   "app.containers.PieChart.products": "",
   "app.containers.PieChart.profiles": "",
   "app.containers.PieChart.projects": "",
-  "app.containers.SearchAll.header": ""
+  "app.containers.SearchAll.header": "",
+  "app.containers.SearchArea.search": ""
 }

@@ -46,7 +46,7 @@ const MaterialInput = styled(Input)`
   background: ${vars.white};
   padding-left: 10px;
   min-height: 45px;
-  margin: 0px 3px 8px 0;
+  margin: 1px 3px 8px 0;
   && {
     line-height: 0;
   }
@@ -58,7 +58,7 @@ const MaterialInput = styled(Input)`
 const MaterialSelect = styled(Select)`
   background: ${vars.white};
   max-width: 200px;
-  margin: 0px 3px 8px 0;
+  margin: 1px 3px 8px 0;
   & > div > div {
     padding-left: 10px;
   }
@@ -68,8 +68,8 @@ const MaterialSelect = styled(Select)`
 `
 
 const MaterialButton = styled(Button) `
-  height: 44px;
-  max-width: 120px;
+  height: 46px;
+  width: 145px;
   && {
     font-weight: bold;
     border-radius: 0;

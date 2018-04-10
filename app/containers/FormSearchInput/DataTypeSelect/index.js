@@ -1,0 +1,57 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
+import { createStructuredSelector } from 'reselect'
+import { compose } from 'redux'
+import injectReducer from '../../../utils/injectReducer'
+import { selectDataType } from './selectors'
+import { changeDataType } from './actions'
+import reducer from './reducer'
+import messages from './messages'
+import { MenuItem } from 'material-ui/Menu'
+import { MaterialSelect } from '../../SearchInput/styles'
+
+class DataTypeSelect extends React.PureComponent {
+  handleChangeDataType = e => {
+    this.props.dispatchChangeDataType(e.target.value)
+  }
+
+  render() {
+    const { dataType } = this.props
+    return (
+      <MaterialSelect value={dataType} onChange={this.handleChangeDataType}>
+        <MenuItem value="all">
+          <em><FormattedMessage {...messages.allDataType} /></em>
+        </MenuItem>
+        <MenuItem value="profiles"><FormattedMessage {...messages.profiles} /></MenuItem>
+        <MenuItem value="projects"><FormattedMessage {...messages.projects} /></MenuItem>
+        <MenuItem value="patents"><FormattedMessage {...messages.patents} /></MenuItem>
+        <MenuItem value="products"><FormattedMessage {...messages.products} /></MenuItem>
+        <MenuItem value="companies"><FormattedMessage {...messages.companies} /></MenuItem>
+      </MaterialSelect>
+    )
+  }
+}
+
+DataTypeSelect.propTypes = {
+  dataType: PropTypes.string.isRequired,
+}
+
+const mapStateToProps = createStructuredSelector({
+  dataType: selectDataType(),
+})
+
+const mapDispatchToProps = dispatch => ({
+  dispatchChangeDataType: value => {
+    dispatch(changeDataType(value))
+  },
+})
+
+const withConnect = connect(mapStateToProps, mapDispatchToProps)
+const withReducer = injectReducer({ key: 'FormSearchInput/DataTypeSelect', reducer })
+
+export default compose(
+  withReducer,
+  withConnect,
+)(DataTypeSelect)

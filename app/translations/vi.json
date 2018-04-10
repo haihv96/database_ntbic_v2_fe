@@ -11,10 +11,8 @@
   "app.components.Footer.locationHotline": "Điện thoại",
   "app.components.Footer.locationName": "Trung tâm Ươm tạo Công nghệ và Doanh nghiệp Khoa học Công nghệ - Viện Ứng dụng Công nghệ",
   "app.components.Navigation.en": "English",
-  "app.components.Navigation.title": "Trang chủ",
   "app.components.Navigation.vi": "Tiếng việt",
   "app.components.NotFoundPage.header": "",
-  "app.components.ProfileCardSlider.header": "",
   "app.components.SearchArea.all": "Tất cả dữ liệu KH&CN",
   "app.components.SearchArea.companies": "Dữ liệu doanh nghiệp KH&CN",
   "app.components.SearchArea.patents": "Dữ liệu phát minh KH&CN",
@@ -24,6 +22,14 @@
   "app.components.SearchArea.projects": "Dữ liệu đề tài dự án KH&CN",
   "app.components.SearchArea.search": "Tìm kiếm",
   "app.components.SearchArea.title": "Ngân hàng thông tin khoa học và công nghệ",
+  "app.containers.FormSearchInput.DataTypeSelect.allDataType": "Tất cả dữ liệu KH&CN",
+  "app.containers.FormSearchInput.DataTypeSelect.companies": "Dữ liệu doanh nghiệp KH&CN",
+  "app.containers.FormSearchInput.DataTypeSelect.patents": "Dữ liệu phát minh KH&CN",
+  "app.containers.FormSearchInput.DataTypeSelect.products": "Dữ liệu sản phẩm KH&CN",
+  "app.containers.FormSearchInput.DataTypeSelect.profiles": "Dữ liệu chuyên gia KH&CN",
+  "app.containers.FormSearchInput.DataTypeSelect.projects": "Dữ liệu đề tài dự án KH&CN",
+  "app.containers.FormSearchInput.ProvinceSelect.default": "Tỉnh thành",
+  "app.containers.FormSearchInput.QueryInput.placeholder": "Tìm kiếm ...",
   "app.containers.HotProfileSlider.cateTitle": "Chuyên gia KH&CN nổi bật",
   "app.containers.PieChart.companies": "Doanh nghiệp hoạt động KH&CN",
   "app.containers.PieChart.header": "Thống kê dữ liệu KH&CN",
@@ -31,5 +37,6 @@
   "app.containers.PieChart.products": "Sản phẩm KH&CN",
   "app.containers.PieChart.profiles": "Chuyên gia KH&CN",
   "app.containers.PieChart.projects": "Đề tài dự án KH&CN",
-  "app.containers.SearchAll.header": ""
+  "app.containers.SearchAll.header": "",
+  "app.containers.SearchArea.search": "Tìm kiếm"
 }

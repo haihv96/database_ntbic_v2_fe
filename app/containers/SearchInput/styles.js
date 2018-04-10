@@ -11,8 +11,8 @@ const Wrapper = styled.div `
 const MaterialInput = styled(Input)`
   background: ${vars.white};
   padding-left: 10px;
-  min-height: 40px;
-  margin: 0px 3px 8px 0;
+  min-height: 41px;
+  margin: 0 3px 8px 0;
   border: solid 1px ${vars.lightGrey};
   border-bottom: 0;
   box-sizing: border-box;
@@ -29,7 +29,7 @@ const MaterialInput = styled(Input)`
 const MaterialSelect = styled(Select)`
   background: ${vars.white};
   max-width: 200px;
-  margin: 0px 3px 8px 0;
+  margin: 0 3px 8px 0;
   border: solid 1px ${vars.lightGrey};
   border-bottom: 0;
   box-sizing: border-box;
@@ -46,12 +46,11 @@ const MaterialSelect = styled(Select)`
 `
 
 const MaterialButton = styled(Button) `
-  height: 40px;
-  max-width: 120px;
+  height: 41px;
+  width: 145px;
   && {
-    font-weight: bold;
     border-radius: 0;
-    margin-top: -2px;
+    margin-top: -4px;
     background-color: ${vars.midBlue};
     &:hover {
        background-color: ${vars.blue};
