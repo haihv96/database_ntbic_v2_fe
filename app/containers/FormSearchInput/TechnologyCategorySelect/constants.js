@@ -1,0 +1,4 @@
+export const CHANGE_TECHNOLOGY_CATEGORY = 'app/FormSearchInput/TechnologyCategorySelect/CHANGE_TECHNOLOGY_CATEGORY'
+export const LOAD_TECHNOLOGY_CATEGORIES = 'app/FormSearchInput/TechnologyCategorySelect/CHANGE_TECHNOLOGY_CATEGORY'
+export const LOAD_TECHNOLOGY_CATEGORIES_SUCCESS = 'app/FormSearchInput/TechnologyCategorySelect/LOAD_TECHNOLOGY_CATEGORIES_SUCCESS'
+export const LOAD_TECHNOLOGY_CATEGORIES_ERROR = 'app/FormSearchInput/TechnologyCategorySelect/LOAD_TECHNOLOGY_CATEGORIES_ERROR'

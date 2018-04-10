@@ -1,0 +1,4 @@
+export const CHANGE_BASE_TECHNOLOGY_CATEGORY = 'app/FormSearchInput/BaseTechnologyCategorySelect/CHANGE_BASE_TECHNOLOGY_CATEGORY'
+export const LOAD_BASE_TECHNOLOGY_CATEGORIES = 'app/FormSearchInput/BaseTechnologyCategorySelect/CHANGE_BASE_TECHNOLOGY_CATEGORY'
+export const LOAD_BASE_TECHNOLOGY_CATEGORIES_SUCCESS = 'app/FormSearchInput/BaseTechnologyCategorySelect/LOAD_BASE_TECHNOLOGY_CATEGORIES_SUCCESS'
+export const LOAD_BASE_TECHNOLOGY_CATEGORIES_ERROR = 'app/FormSearchInput/BaseTechnologyCategorySelect/LOAD_BASE_TECHNOLOGY_CATEGORIES_ERROR'
