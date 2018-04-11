@@ -3,14 +3,15 @@ import PropTypes from 'prop-types'
 import { CircularProgress } from 'material-ui/Progress'
 import { Wrapper } from './styles'
 
-const CircularLoading = ({ wrapperHeight, size }) => (
-  <Wrapper wrapperHeight={wrapperHeight}>
+const CircularLoading = ({ wrapperWidth, wrapperHeight, size }) => (
+  <Wrapper wrapperWidth={wrapperWidth} wrapperHeight={wrapperHeight}>
     <CircularProgress size={size ? size : 50} color="primary" />
   </Wrapper>
 )
 
 CircularLoading.propTypes = {
   size: PropTypes.number,
+  wrapperWidth: PropTypes.number,
   wrapperHeight: PropTypes.number,
 }
 

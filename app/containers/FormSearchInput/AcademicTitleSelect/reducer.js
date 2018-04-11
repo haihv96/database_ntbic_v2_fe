@@ -20,7 +20,7 @@ const academicTitleSelectReducer = (state = initialState, action) => {
     case LOAD_ACADEMIC_TITLES:
       return state.set('loading', true)
     case LOAD_ACADEMIC_TITLES_SUCCESS:
-      return state.set('loading', false).set('data', action.data)
+      return state.set('loading', false).set('data', fromJS(action.data))
     case LOAD_ACADEMIC_TITLES_ERROR:
       return state.set('loading', false).set('error', action.error)
     default:

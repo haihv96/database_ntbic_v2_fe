@@ -20,7 +20,7 @@ const patentTypeSelectReducer = (state = initialState, action) => {
     case LOAD_PATENT_TYPES:
       return state.set('loading', true)
     case LOAD_PATENT_TYPES_SUCCESS:
-      return state.set('loading', false).set('data', action.data)
+      return state.set('loading', false).set('data', fromJS(action.data))
     case LOAD_PATENT_TYPES_ERROR:
       return state.set('loading', false).set('error', action.error)
     default:

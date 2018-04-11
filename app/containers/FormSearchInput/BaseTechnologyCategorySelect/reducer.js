@@ -20,7 +20,7 @@ const baseTechnologyCategorySelectReducer = (state = initialState, action) => {
     case LOAD_BASE_TECHNOLOGY_CATEGORIES:
       return state.set('loading', true)
     case LOAD_BASE_TECHNOLOGY_CATEGORIES_SUCCESS:
-      return state.set('loading', false).set('data', action.data)
+      return state.set('loading', false).set('data', fromJS(action.data))
     case LOAD_BASE_TECHNOLOGY_CATEGORIES_ERROR:
       return state.set('loading', false).set('error', action.error)
     default:
