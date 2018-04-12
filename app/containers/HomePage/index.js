@@ -1,6 +1,6 @@
 import React from 'react'
 import { Main} from '../../globals/components'
-import SearchArea from '../../components/SearchArea'
+import SearchArea from '../../containers/SearchArea'
 import PieChar from '../PieChart'
 import ProfileSlider from '../HotProfileSlider'
 

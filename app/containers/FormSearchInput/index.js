@@ -58,7 +58,7 @@ export class SearchInput extends React.PureComponent {
     const searchQuery = queryInput + techCateQuery + provinceQuery +
       academicTitleQuery + baseTechCateQuery + specializationQuery + patentTypeQuery
 
-    history.push(`/search/${dataType}/?${searchQuery}`)
+    history.push(`/search/?data_type=${dataType}${searchQuery}`)
   }
 
   render() {
@@ -66,17 +66,19 @@ export class SearchInput extends React.PureComponent {
     return (
       <Wrapper>
         <form onSubmit={this.handleOnSubmit}>
-          <QueryInput />
-          <DataTypeSelect />
+          <div>
+            <QueryInput />
+            <DataTypeSelect />
+            <MaterialButton type="submit" variant="raised" color="primary">
+              <SearchIcon size={20} /><FormattedMessage {...messages.search} />
+            </MaterialButton>
+          </div>
           {_.includes(['profiles', 'projects', 'companies'], dataType) && <ProvinceSelect />}
           {_.includes(['profiles'], dataType) && <AcademicTitleSelect />}
           {_.includes(['patents', 'companies', 'products'], dataType) && <BaseTechnologyCategorySelect />}
           {_.includes(['projects'], dataType) && <TechnologyCategorySelect />}
           {checkInputHasValue(technologyCategoryValue) && <SpecializationSelect />}
           {_.includes(['patents'], dataType) && <PatentTypeSelect />}
-          <MaterialButton type="submit" variant="raised" color="primary">
-            <SearchIcon size={20} /><FormattedMessage {...messages.search} />
-          </MaterialButton>
         </form>
       </Wrapper>
     )

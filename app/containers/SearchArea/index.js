@@ -22,6 +22,7 @@ import {
 } from './styles'
 import { ALL_VALUE } from '../../globals/constants'
 import SearchIcon from 'react-icons/lib/md/search'
+import { checkInputHasValue } from '../../globals/utils'
 
 class SearchArea extends React.PureComponent {
   handleChangeType = e => {
@@ -34,7 +35,8 @@ class SearchArea extends React.PureComponent {
 
   handleSubmit = () => {
     const { history, type, query } = this.props
-    history.push(`/search/${type}/?query=${query}`)
+    const queryInput = checkInputHasValue(query) ? `&query=${query}` : ''
+    history.push(`/search/?data_type=${type}${queryInput}`)
   }
 
   render() {
