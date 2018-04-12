@@ -4,14 +4,12 @@ import { connect } from 'react-redux'
 import { injectIntl } from 'react-intl'
 import { createStructuredSelector } from 'reselect'
 import { compose } from 'redux'
-import injectReducer from '../../../utils/injectReducer'
 import { selectQuery } from './selectors'
 import { changeQuery } from './actions'
-import reducer from './reducer'
 import messages from './messages'
 import {
   MaterialInput,
-} from '../../SearchInput/styles'
+} from '../styles'
 
 export class QueryInput extends React.PureComponent {
   handleChangeQuery = e => {
@@ -44,10 +42,8 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps)
-const withReducer = injectReducer({ key: 'FormSearchInput/QueryInput', reducer })
 
 export default compose(
-  withReducer,
   withConnect,
   injectIntl,
 )(QueryInput)

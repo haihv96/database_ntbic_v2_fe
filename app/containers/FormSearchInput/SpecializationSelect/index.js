@@ -5,20 +5,38 @@ import { FormattedMessage } from 'react-intl'
 import _ from 'lodash'
 import { createStructuredSelector } from 'reselect'
 import { compose } from 'redux'
-import injectReducer from '../../../utils/injectReducer'
 import injectSaga from '../../../utils/injectSaga'
-import { selectLoading, selectSpecializationsData, selectSpecializationValue } from './selectors'
-import { changeSpecialization, loadSpecializations } from './actions'
-import reducer from './reducer'
+import {
+  selectLoading,
+  selectSpecializationsData,
+  selectSpecializationValue,
+} from './selectors'
+import { selectTechnologyCategoryValue } from '../TechnologyCategorySelect/selectors'
+import {
+  changeSpecialization,
+  loadSpecializations,
+  resetSpecializationValue,
+} from './actions'
 import saga from './saga'
 import messages from './messages'
 import { MenuItem } from 'material-ui/Menu'
-import { MaterialSelect } from '../../SearchInput/styles'
+import { MaterialSelect } from '../styles'
 import CircularLoading from '../../../components/CircularLoading'
+import { ALL_VALUE } from '../../../globals/constants'
+import { checkInputHasValue } from '../../../globals/utils'
 
 class SpecializationSelect extends React.PureComponent {
   componentWillMount() {
-    // this.props.dispatchLoadSpecializations()
+    this.props.dispatchLoadSpecializations()
+  }
+
+  componentWillReceiveProps({ technologyCategoryValue }) {
+    if (checkInputHasValue(technologyCategoryValue) &&
+      technologyCategoryValue !== this.props.technologyCategoryValue
+    ) {
+      this.props.dispatchResetSpecializationValue()
+      this.props.dispatchLoadSpecializations()
+    }
   }
 
   handleChangeSpecialization = e => {
@@ -35,7 +53,7 @@ class SpecializationSelect extends React.PureComponent {
 
   renderSelectField = (data, value) => (
     <MaterialSelect value={value} onChange={this.handleChangeSpecialization}>
-      <MenuItem value="all">
+      <MenuItem value={ALL_VALUE}>
         <em><FormattedMessage {...messages.default} /></em>
       </MenuItem>
       {
@@ -59,7 +77,10 @@ class SpecializationSelect extends React.PureComponent {
 }
 
 SpecializationSelect.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
   loading: PropTypes.bool.isRequired,
   data: PropTypes.array.isRequired,
 }
@@ -68,6 +89,7 @@ const mapStateToProps = createStructuredSelector({
   value: selectSpecializationValue(),
   loading: selectLoading(),
   data: selectSpecializationsData(),
+  technologyCategoryValue: selectTechnologyCategoryValue(),
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -77,14 +99,15 @@ const mapDispatchToProps = dispatch => ({
   dispatchLoadSpecializations: () => {
     dispatch(loadSpecializations())
   },
+  dispatchResetSpecializationValue: () => {
+    dispatch(resetSpecializationValue())
+  },
 })
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps)
-const withReducer = injectReducer({ key: 'FormSearchInput/SpecializationSelect', reducer })
-const withSaga = injectSaga({ key: 'FormSearchInput/SpecializationSelect', saga })
+const withSaga = injectSaga({ key: 'formSearchInput/specializationSelect', saga })
 
 export default compose(
-  withReducer,
   withSaga,
   withConnect,
 )(SpecializationSelect)

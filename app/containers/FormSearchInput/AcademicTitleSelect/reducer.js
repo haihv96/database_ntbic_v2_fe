@@ -5,12 +5,14 @@ import {
   LOAD_ACADEMIC_TITLES_SUCCESS,
   LOAD_ACADEMIC_TITLES_ERROR,
 } from './constants'
+import { RESET_VALUE } from '../constants'
+import { ALL_VALUE } from '../../../globals/constants'
 
 const initialState = fromJS({
   loading: false,
   data: [],
   error: null,
-  value: 'all',
+  value: ALL_VALUE,
 })
 
 const academicTitleSelectReducer = (state = initialState, action) => {
@@ -23,6 +25,8 @@ const academicTitleSelectReducer = (state = initialState, action) => {
       return state.set('loading', false).set('data', fromJS(action.data))
     case LOAD_ACADEMIC_TITLES_ERROR:
       return state.set('loading', false).set('error', action.error)
+    case RESET_VALUE:
+      return state.set('value', initialState.get('value'))
     default:
       return state
   }

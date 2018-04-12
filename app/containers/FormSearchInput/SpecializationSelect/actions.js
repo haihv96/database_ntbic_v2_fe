@@ -3,6 +3,7 @@ import {
   LOAD_SPECIALIZATIONS,
   LOAD_SPECIALIZATIONS_SUCCESS,
   LOAD_SPECIALIZATIONS_ERROR,
+  RESET_SPECIALIZATION_VALUE,
 } from './constants'
 
 export const changeSpecialization = value => {
@@ -29,5 +30,11 @@ export const specializationsLoadingError = error => {
   return {
     type: LOAD_SPECIALIZATIONS_ERROR,
     error,
+  }
+}
+
+export const resetSpecializationValue = () => {
+  return {
+    type: RESET_SPECIALIZATION_VALUE,
   }
 }

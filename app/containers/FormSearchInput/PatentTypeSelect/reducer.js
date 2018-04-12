@@ -5,12 +5,13 @@ import {
   LOAD_PATENT_TYPES_SUCCESS,
   LOAD_PATENT_TYPES_ERROR,
 } from './constants'
+import { ALL_VALUE } from '../../../globals/constants'
 
 const initialState = fromJS({
   loading: false,
   data: [],
   error: null,
-  value: 'all',
+  value: ALL_VALUE,
 })
 
 const patentTypeSelectReducer = (state = initialState, action) => {

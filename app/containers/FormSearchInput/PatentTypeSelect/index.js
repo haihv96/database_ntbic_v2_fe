@@ -5,16 +5,15 @@ import { FormattedMessage } from 'react-intl'
 import _ from 'lodash'
 import { createStructuredSelector } from 'reselect'
 import { compose } from 'redux'
-import injectReducer from '../../../utils/injectReducer'
 import injectSaga from '../../../utils/injectSaga'
 import { selectLoading, selectPatentTypesData, selectPatentTypeValue } from './selectors'
 import { changePatentType, loadPatentTypes } from './actions'
-import reducer from './reducer'
 import saga from './saga'
 import messages from './messages'
 import { MenuItem } from 'material-ui/Menu'
-import { MaterialSelect } from '../../SearchInput/styles'
+import { MaterialSelect } from '../styles'
 import CircularLoading from '../../../components/CircularLoading'
+import { ALL_VALUE } from '../../../globals/constants'
 
 class PatentTypeSelect extends React.PureComponent {
   componentWillMount() {
@@ -35,7 +34,7 @@ class PatentTypeSelect extends React.PureComponent {
 
   renderSelectField = (data, value) => (
     <MaterialSelect value={value} onChange={this.handleChangePatentType}>
-      <MenuItem value="all">
+      <MenuItem value={ALL_VALUE}>
         <em><FormattedMessage {...messages.default} /></em>
       </MenuItem>
       {
@@ -59,7 +58,10 @@ class PatentTypeSelect extends React.PureComponent {
 }
 
 PatentTypeSelect.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
   loading: PropTypes.bool.isRequired,
   data: PropTypes.array.isRequired,
 }
@@ -80,11 +82,9 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps)
-const withReducer = injectReducer({ key: 'FormSearchInput/PatentTypeSelect', reducer })
 const withSaga = injectSaga({ key: 'FormSearchInput/PatentTypeSelect', saga })
 
 export default compose(
-  withReducer,
   withSaga,
   withConnect,
 )(PatentTypeSelect)

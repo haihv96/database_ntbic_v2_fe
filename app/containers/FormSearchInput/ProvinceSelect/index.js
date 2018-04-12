@@ -5,16 +5,15 @@ import { FormattedMessage } from 'react-intl'
 import _ from 'lodash'
 import { createStructuredSelector } from 'reselect'
 import { compose } from 'redux'
-import injectReducer from '../../../utils/injectReducer'
 import injectSaga from '../../../utils/injectSaga'
 import { selectLoading, selectProvincesData, selectProvinceValue } from './selectors'
 import { changeProvince, loadProvinces } from './actions'
-import reducer from './reducer'
 import saga from './saga'
 import messages from './messages'
 import { MenuItem } from 'material-ui/Menu'
-import { MaterialSelect } from '../../SearchInput/styles'
+import { MaterialSelect } from '../styles'
 import CircularLoading from '../../../components/CircularLoading'
+import { ALL_VALUE } from '../../../globals/constants'
 
 class ProvinceSelect extends React.PureComponent {
   componentWillMount() {
@@ -35,7 +34,7 @@ class ProvinceSelect extends React.PureComponent {
 
   renderSelectField = (data, value) => (
     <MaterialSelect value={value} onChange={this.handleChangeProvince}>
-      <MenuItem value="all">
+      <MenuItem value={ALL_VALUE}>
         <em><FormattedMessage {...messages.default} /></em>
       </MenuItem>
       {
@@ -59,7 +58,10 @@ class ProvinceSelect extends React.PureComponent {
 }
 
 ProvinceSelect.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
   loading: PropTypes.bool.isRequired,
   data: PropTypes.array.isRequired,
 }
@@ -80,11 +82,9 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps)
-const withReducer = injectReducer({ key: 'FormSearchInput/ProvinceSelect', reducer })
-const withSaga = injectSaga({ key: 'FormSearchInput/ProvinceSelect', saga })
+const withSaga = injectSaga({ key: 'formSearchInput/provinceSelect', saga })
 
 export default compose(
-  withReducer,
   withSaga,
   withConnect,
 )(ProvinceSelect)

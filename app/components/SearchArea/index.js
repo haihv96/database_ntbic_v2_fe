@@ -20,6 +20,7 @@ import {
   MaterialButton,
   Container,
 } from './styles'
+import { ALL_VALUE } from '../../globals/constants'
 import SearchIcon from 'react-icons/lib/md/search'
 
 class SearchArea extends React.PureComponent {
@@ -50,7 +51,7 @@ class SearchArea extends React.PureComponent {
               placeholder={intl.formatMessage(messages.placeholder)}
             />
             <MaterialSelect value={type} onChange={this.handleChangeType}>
-              <MenuItem value="all">
+              <MenuItem value={ALL_VALUE}>
                 <em><FormattedMessage {...messages.all} /></em>
               </MenuItem>
               <MenuItem value="profiles"><FormattedMessage {...messages.profiles} /></MenuItem>

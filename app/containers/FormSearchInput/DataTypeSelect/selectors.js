@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-const dataTypeSelectState = state => state.get('FormSearchInput/DataTypeSelect')
+const dataTypeSelectState = state => state.getIn(['formSearchInput', 'dataType'])
 
 const selectDataType = () => createSelector(
   dataTypeSelectState,

@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect'
 
-const queryInputState = state => state.get('FormSearchInput/QueryInput')
+const queryInputState = state => state.getIn(['formSearchInput', 'queryInput'])
 
 const selectQuery = () => createSelector(
   queryInputState,
-  state =>  state.get('query')
+  state => state.get('query')
 )
 
 export {

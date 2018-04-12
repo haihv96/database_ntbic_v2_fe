@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-const technologyCategorySelectState = state => state.get('FormSearchInput/TechnologyCategorySelect')
+const technologyCategorySelectState = state => state.getIn(['formSearchInput', 'technologyCategory'])
 
 const selectTechnologyCategoryValue = () => createSelector(
   technologyCategorySelectState,

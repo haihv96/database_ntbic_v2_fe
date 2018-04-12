@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-const patentTypeSelectState = state => state.get('FormSearchInput/PatentTypeSelect')
+const patentTypeSelectState = state => state.getIn(['formSearchInput', 'patentType'])
 
 const selectPatentTypeValue = () => createSelector(
   patentTypeSelectState,

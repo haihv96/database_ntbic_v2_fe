@@ -2,9 +2,10 @@ import { fromJS } from 'immutable'
 import {
   CHANGE_DATA_TYPE,
 } from './constants'
+import { ALL_VALUE } from '../../../globals/constants'
 
 const initialState = fromJS({
-  dataType: 'all',
+  dataType: ALL_VALUE,
 })
 
 const dataTypeSelectReducer = (state = initialState, action) => {

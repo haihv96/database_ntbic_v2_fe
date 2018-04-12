@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-const provinceSelectState = state => state.get('FormSearchInput/ProvinceSelect')
+const provinceSelectState = state => state.getIn(['formSearchInput', 'province'])
 
 const selectProvinceValue = () => createSelector(
   provinceSelectState,
