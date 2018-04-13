@@ -10,7 +10,7 @@ import injectReducer from 'utils/injectReducer'
 import reducer from './reducer'
 import saga from './saga'
 import SearchResultCate from '../../../components/SearchResultCate'
-import Table from '../../../components/Table'
+import ProfilesTable from '../../../components/ProfilesTable'
 
 export class SearchAll extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -22,25 +22,7 @@ export class SearchAll extends React.PureComponent { // eslint-disable-line reac
           results={10}
           time={0.3824782342}
         />
-        <Table />
-        <SearchResultCate
-          dataType="profiles"
-          results={10}
-          time={0.3824782342}
-        />
-        <Table />
-        <SearchResultCate
-          dataType="profiles"
-          results={10}
-          time={0.3824782342}
-        />
-        <Table />
-        <SearchResultCate
-          dataType="profiles"
-          results={10}
-          time={0.3824782342}
-        />
-        <Table />
+        <ProfilesTable />
       </div>
     )
   }
