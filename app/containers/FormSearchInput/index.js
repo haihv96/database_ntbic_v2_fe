@@ -30,7 +30,8 @@ import { selectPatentTypeValue } from './PatentTypeSelect/selectors'
 import { checkInputHasValue } from '../../globals/utils'
 
 export class SearchInput extends React.PureComponent {
-  handleOnSubmit = () => {
+  handleOnSubmit = e => {
+    e.preventDefault()
     const {
       dataType,
       technologyCategoryValue,

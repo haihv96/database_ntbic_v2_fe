@@ -16,7 +16,7 @@ const selectSearchAllDomain = (state) => state.get('searchAll');
 
 const makeSelectSearchAll = () => createSelector(
   selectSearchAllDomain,
-  (substate) => substate.toJS()
+  (substate) => substate
 );
 
 export default makeSelectSearchAll;

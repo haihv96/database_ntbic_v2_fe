@@ -6,8 +6,10 @@ export default {
   white: '#fff',
   dark: '#0a1429',
   black: '#000',
+  blurGrey: '#f4f4f4',
   lightGrey: '#e0e0e0',
   grey: '#ccc',
   darkGrey: '#858585',
   blurOrange: '#ffc95f',
+  tableBlue: '#2c60ab',
 }

@@ -15,7 +15,7 @@ const App = () => (
     <Navigation />
     <Switch>
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/search" component={SearchPages} />
+      <Route path="/search" component={SearchPages} />
       <Route component={NotFoundPage} />
     </Switch>
     <Footer />

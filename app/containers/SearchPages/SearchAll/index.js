@@ -1,25 +1,46 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { FormattedMessage } from 'react-intl'
 import { createStructuredSelector } from 'reselect'
+import { injectIntl } from 'react-intl'
+import messages from './messages'
 import { compose } from 'redux'
 import injectSaga from 'utils/injectSaga'
 import injectReducer from 'utils/injectReducer'
-import makeSelectSearchAll from './selectors'
 import reducer from './reducer'
 import saga from './saga'
-import messages from './messages'
-import FormSearchInput from '../../FormSearchInput'
-import { Main } from '../../../globals/components'
+import SearchResultCate from '../../../components/SearchResultCate'
+import Table from '../../../components/Table'
 
 export class SearchAll extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const { intl } = this.props
     return (
       <div>
-        <Main>
-          <FormSearchInput />
-        </Main>
+        <SearchResultCate
+          dataType="profiles"
+          results={10}
+          time={0.3824782342}
+        />
+        <Table />
+        <SearchResultCate
+          dataType="profiles"
+          results={10}
+          time={0.3824782342}
+        />
+        <Table />
+        <SearchResultCate
+          dataType="profiles"
+          results={10}
+          time={0.3824782342}
+        />
+        <Table />
+        <SearchResultCate
+          dataType="profiles"
+          results={10}
+          time={0.3824782342}
+        />
+        <Table />
       </div>
     )
   }
@@ -29,9 +50,7 @@ SearchAll.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = createStructuredSelector({
-  searchall: makeSelectSearchAll(),
-});
+const mapStateToProps = createStructuredSelector({});
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -48,4 +67,5 @@ export default compose(
   withReducer,
   withSaga,
   withConnect,
-)(SearchAll);
+  injectIntl,
+)(SearchAll)
