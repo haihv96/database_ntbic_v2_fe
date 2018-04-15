@@ -25,7 +25,7 @@ function* getQuery() {
 export function* getProfiles() {
   try {
     const query = yield getQuery()
-    const response = yield call(request, `/profiles?per_page=10${query}`)
+    const response = yield call(request, `/profiles?per_page=5${query}`)
     yield put(profilesLoaded(response.data))
   } catch (err) {
     console.log(err)
@@ -35,7 +35,7 @@ export function* getProfiles() {
 export function* getProjects() {
   try {
     const query = yield getQuery()
-    const response = yield call(request, `/profiles?per_page=10${query}`)
+    const response = yield call(request, `/projects?per_page=5${query}`)
     yield put(projectsLoaded(response.data))
   } catch (err) {
     console.log(err)
@@ -45,7 +45,7 @@ export function* getProjects() {
 export function* getPatents() {
   try {
     const query = yield getQuery()
-    const response = yield call(request, `/profiles?per_page=10${query}`)
+    const response = yield call(request, `/patents?per_page=5${query}`)
     yield put(patentsLoaded(response.data))
   } catch (err) {
     console.log(err)
@@ -56,7 +56,7 @@ export function* getPatents() {
 export function* getProducts() {
   try {
     const query = yield getQuery()
-    const response = yield call(request, `/profiles?per_page=10${query}`)
+    const response = yield call(request, `/products?per_page=5${query}`)
     yield put(productsLoaded(response.data))
   } catch (err) {
     console.log(err)
@@ -66,7 +66,7 @@ export function* getProducts() {
 export function* getCompanies() {
   try {
     const query = yield getQuery()
-    const response = yield call(request, `/profiles?per_page=10${query}`)
+    const response = yield call(request, `/companies?per_page=5${query}`)
     yield put(companiesLoaded(response.data))
   } catch (err) {
     console.log(err)

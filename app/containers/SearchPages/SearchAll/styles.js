@@ -5,6 +5,12 @@ const AminateFadeInWrapper = styled.div `
   animation: ${keyframes`${fadeIn}`} .8s ease-in-out;
   
 `
+
+const WapperLoading = styled.div `
+  margin: 10px 0;
+`
+
 export {
   AminateFadeInWrapper,
+  WapperLoading,
 }

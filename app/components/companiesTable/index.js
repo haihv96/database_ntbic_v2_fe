@@ -6,18 +6,18 @@ import messages from './messages'
 import Paper from 'material-ui/Paper'
 import Table, { TableBody, TableRow } from 'material-ui/Table'
 import { CustomTableHead, TableHeadCell, CustomTableCell, CustomTableRow } from '../Table/styles'
-import { Img, ImgWrapper, ImgContainer } from './styles'
+import { Img, ImgWrapper } from './styles'
 import { AbsCenter } from '../../globals/components'
 
-const ProfilesTable = ({ data }) => (
+const CompaniesTable = ({ data }) => (
   <Paper>
     <Table>
       <CustomTableHead>
         <TableRow>
-          <TableHeadCell><FormattedMessage {...messages.image} /></TableHeadCell>
-          <TableHeadCell width={20}><FormattedMessage {...messages.name} /></TableHeadCell>
-          <TableHeadCell><FormattedMessage {...messages.agency} /></TableHeadCell>
-          <TableHeadCell><FormattedMessage {...messages.research_for} /></TableHeadCell>
+          <TableHeadCell><FormattedMessage {...messages.logo} /></TableHeadCell>
+          <TableHeadCell width={30}><FormattedMessage {...messages.name} /></TableHeadCell>
+          <TableHeadCell width={20}><FormattedMessage {...messages.base_technology_category} /></TableHeadCell>
+          <TableHeadCell><FormattedMessage {...messages.headquarters} /></TableHeadCell>
           <TableHeadCell width={15}><FormattedMessage {...messages.province} /></TableHeadCell>
         </TableRow>
       </CustomTableHead>
@@ -28,15 +28,13 @@ const ProfilesTable = ({ data }) => (
               <CustomTableCell center>
                 <ImgWrapper>
                   <AbsCenter>
-                    <ImgContainer>
-                      <Img src={entry.image} alt={entry.name} />
-                    </ImgContainer>
+                    <Img src={entry.logo} alt={entry.name} />
                   </AbsCenter>
                 </ImgWrapper>
               </CustomTableCell>
-              <CustomTableCell center bold>{entry.academic_title}.{entry.name}</CustomTableCell>
-              <CustomTableCell>{entry.agency}</CustomTableCell>
-              <CustomTableCell>{entry.research_for}</CustomTableCell>
+              <CustomTableCell bold>{entry.name}</CustomTableCell>
+              <CustomTableCell center>{entry.base_technology_category}</CustomTableCell>
+              <CustomTableCell>{entry.headquarters}</CustomTableCell>
               <CustomTableCell center>{entry.province}</CustomTableCell>
             </CustomTableRow>
           )
@@ -46,18 +44,17 @@ const ProfilesTable = ({ data }) => (
   </Paper>
 )
 
-ProfilesTable.propTypes = {
+CompaniesTable.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      image: PropTypes.string.isRequired,
-      academic_title: PropTypes.string.isRequired,
+      logo: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      agency: PropTypes.string.isRequired,
-      research_for: PropTypes.string.isRequired,
+      base_technology_category: PropTypes.string.isRequired,
+      headquarters: PropTypes.string.isRequired,
       province: PropTypes.string.isRequired,
     })
   ).isRequired,
 }
 
-export default ProfilesTable
+export default CompaniesTable

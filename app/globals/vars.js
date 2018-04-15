@@ -11,5 +11,5 @@ export default {
   grey: '#ccc',
   darkGrey: '#858585',
   blurOrange: '#ffc95f',
-  tableBlue: '#2c60ab',
+  tableBlue: '#9abdbc',
 }

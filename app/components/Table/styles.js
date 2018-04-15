@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import React from 'react'
 import vars from '../../globals/vars'
 import { TableCell, TableHead, TableRow } from 'material-ui/Table'
 
@@ -14,17 +15,21 @@ const CustomTableRow = styled(TableRow) `
 
 const TableHeadCell = styled(TableCell) `
   && {
-    color: ${vars.white};
+    color: ${vars.black};
     font-size: 15px;
     text-align: center;
     font-weight: bold;
+    border-right: 1px solid ${vars.lightGrey};
     width: ${props => props.width ? `${props.width}%` : 'auto'}
   }
 `
 
-const CustomTableCell = styled(TableCell)`
+const CustomTableCell = styled(({ bold, center, ...rest }) => <TableCell {...rest} />)`
   && {
-    font-size: 14px;
+    padding: 10px;
+    position: relative;
+    border-right: 1px solid ${vars.lightGrey};
+    font-size: 13px;
     font-weight: ${props => props.bold ? 'bold' : 'normal'};
     text-align: ${props => props.center ? 'center' : 'left'};
   }
