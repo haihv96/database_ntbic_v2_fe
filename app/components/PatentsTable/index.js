@@ -9,7 +9,7 @@ import { CustomTableHead, TableHeadCell, CustomTableCell, CustomTableRow } from 
 
 const PatentsTable = ({ data }) => (
   <Paper>
-    <Table fixedHeader={false}>
+    <Table>
       <CustomTableHead>
         <TableRow>
           <TableHeadCell><FormattedMessage {...messages.name} /></TableHeadCell>

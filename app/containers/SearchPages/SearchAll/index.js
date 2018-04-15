@@ -32,6 +32,16 @@ import CompaniesTable from '../../../components/companiesTable'
 
 export class SearchAll extends React.PureComponent {
   componentWillMount() {
+    this.loadSearchQuery()
+  }
+
+  componentWillReceiveProps({ searchQuery }) {
+    if (this.props.searchQuery !== searchQuery) {
+      this.loadSearchQuery()
+    }
+  }
+
+  loadSearchQuery = () => {
     const {
       dispatchLoadProfiles,
       dispatchLoadProducts,
@@ -115,7 +125,6 @@ export class SearchAll extends React.PureComponent {
       productsLoading, productsData,
       companiesLoading, companiesData,
     } = this.props
-    console.log(profilesData)
     return (
       <div>
         {profilesLoading ? this.renderLoading() : this.renderProfiles(profilesData)}

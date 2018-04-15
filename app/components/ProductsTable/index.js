@@ -49,7 +49,7 @@ ProductsTable.propTypes = {
       thumb: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       base_technology_category: PropTypes.string.isRequired,
-      highlights: PropTypes.string.isRequired,
+      highlights: PropTypes.string,
     })
   ).isRequired,
 }

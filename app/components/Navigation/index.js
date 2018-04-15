@@ -35,7 +35,6 @@ class Navigation extends React.PureComponent {
 
 
   navbarToggle = () => {
-    console.log(this.state.isOpen)
     this.setState({ isOpen: !this.state.isOpen })
   }
 

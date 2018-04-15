@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom'
 import { createStructuredSelector } from 'reselect'
 import QueryString from 'querystring'
 import SearchAll from './SearchAll'
+import SearchProfiles from './SearchProfiles'
 import { ALL_VALUE } from '../../globals/constants'
 import { Main } from '../../globals/components'
 import FormSearchInput from '../FormSearchInput'
@@ -22,14 +23,28 @@ import { changeSpecialization } from '../FormSearchInput/SpecializationSelect/ac
 const settingSearchPage = dataType => {
   switch (dataType) {
     case ALL_VALUE:
-      return <SearchAll />
+      return SearchAll
+    case 'profiles':
+      return SearchProfiles
     default:
-      return <SearchAll />
+      return SearchAll
   }
 }
 
 class SearchPages extends React.PureComponent {
+  state = { dataType: this.props.dataType }
+
   componentWillMount() {
+    this.extractQueryStringToState(this.props.location.search)
+  }
+
+  componentWillReceiveProps({ location: { search } }) {
+    if (search !== this.props.location.search) {
+      this.extractQueryStringToState(search)
+    }
+  }
+
+  extractQueryStringToState = locationSearch => {
     const {
       dispatchChangeAcademicTitle,
       dispatchChangeBaseTechnologyCategory,
@@ -43,22 +58,28 @@ class SearchPages extends React.PureComponent {
     const {
       query, academic_title_id, province_id, data_type, base_technology_category_id,
       patent_type_id, specialization_id, technology_category_id,
-    } = QueryString.parse(_.replace(this.props.location.search, '?', ''))
+    } = QueryString.parse(_.replace(locationSearch, '?', ''))
+    if (data_type) {
+      dispatchChangeDataType(data_type)
+      this.setState({ dataType: data_type })
+    }
     if (query) dispatchChangeQuery(query)
-    if (academic_title_id) dispatchChangeAcademicTitle(academic_title_id)
-    if (province_id) dispatchChangeProvince(province_id)
-    if (data_type) dispatchChangeDataType(data_type)
-    if (patent_type_id) dispatchChangePatentType(patent_type_id)
-    if (specialization_id) dispatchChangeSpecialization(specialization_id)
-    if (technology_category_id) dispatchChangeTechnologyCategory(technology_category_id)
-    if (base_technology_category_id) dispatchChangeBaseTechnologyCategory(base_technology_category_id)
+    if (academic_title_id) dispatchChangeAcademicTitle(parseInt(academic_title_id, 10))
+    if (province_id) dispatchChangeProvince(parseInt(province_id, 10))
+    if (patent_type_id) dispatchChangePatentType(parseInt(patent_type_id, 10))
+    if (specialization_id) dispatchChangeSpecialization(parseInt(specialization_id, 10))
+    if (technology_category_id) dispatchChangeTechnologyCategory(parseInt(technology_category_id, 10))
+    if (base_technology_category_id) dispatchChangeBaseTechnologyCategory(parseInt(base_technology_category_id, 10))
   }
 
   render() {
+    const { location: { search } } = this.props
+    const { dataType } = this.state
+    const PageSearch = settingSearchPage(dataType)
     return (
       <Main>
         <FormSearchInput />
-        {settingSearchPage(this.props.dataType)}
+        <PageSearch searchQuery={search} />
       </Main>
     )
   }

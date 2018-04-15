@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { fadeIn } from 'react-animations'
 import vars from '../../globals/vars'
 import Input from 'material-ui/Input'
 import Select from 'material-ui/Select'
@@ -43,6 +44,7 @@ const MaterialSelect = styled(Select)`
       background-color: ${vars.lightBlue};
     }
   }
+  animation: ${ keyframes`${fadeIn}`} 1s ease-in-out;
 `
 
 const MaterialButton = styled(Button) `

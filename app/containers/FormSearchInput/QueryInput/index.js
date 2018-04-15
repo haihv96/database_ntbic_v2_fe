@@ -10,6 +10,7 @@ import messages from './messages'
 import {
   MaterialInput,
 } from '../styles'
+import { checkInputHasValue } from '../../../globals/utils'
 
 export class QueryInput extends React.PureComponent {
   handleChangeQuery = e => {
@@ -17,11 +18,12 @@ export class QueryInput extends React.PureComponent {
   }
 
   render() {
-    const { intl } = this.props
+    const { intl, query } = this.props
     return (
       <MaterialInput
         onChange={this.handleChangeQuery}
         placeholder={intl.formatMessage(messages.placeholder)}
+        value={checkInputHasValue(query) ? query : ''}
       />
     )
   }
