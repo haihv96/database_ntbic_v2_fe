@@ -1,25 +1,66 @@
-import { createSelector } from 'reselect';
+import { createSelector } from 'reselect'
 
-/**
- * Direct selector to the searchAll state domain
- */
-const selectSearchAllDomain = (state) => state.get('searchAll');
+const searchAllState = state => state.get('searchAll')
 
-/**
- * Other specific selectors
- */
+const selectProfilesLoading = () => createSelector(
+  searchAllState,
+  state => state.getIn(['profiles', 'loading'])
+)
 
+const selectPatentsLoading = () => createSelector(
+  searchAllState,
+  state => state.getIn(['patents', 'loading'])
+)
 
-/**
- * Default selector used by SearchAll
- */
+const selectProjectsLoading = () => createSelector(
+  searchAllState,
+  state => state.getIn(['projects', 'loading'])
+)
 
-const makeSelectSearchAll = () => createSelector(
-  selectSearchAllDomain,
-  (substate) => substate
-);
+const selectProductsLoading = () => createSelector(
+  searchAllState,
+  state => state.getIn(['products', 'loading'])
+)
 
-export default makeSelectSearchAll;
+const selectCompaniesLoading = () => createSelector(
+  searchAllState,
+  state => state.getIn(['companies', 'loading'])
+)
+
+const selectProfilesData = () => createSelector(
+  searchAllState,
+  state => state.getIn(['profiles', 'data']).toJS()
+)
+
+const selectPatentsData = () => createSelector(
+  searchAllState,
+  state => state.getIn(['patents', 'data']).toJS()
+)
+
+const selectProjectsData = () => createSelector(
+  searchAllState,
+  state => state.getIn(['projects', 'data']).toJS()
+)
+
+const selectProductsData = () => createSelector(
+  searchAllState,
+  state => state.getIn(['products', 'data']).toJS()
+)
+
+const selectCompaniesData = () => createSelector(
+  searchAllState,
+  state => state.getIn(['companies', 'data']).toJS()
+)
+
 export {
-  selectSearchAllDomain,
-};
+  selectCompaniesData,
+  selectCompaniesLoading,
+  selectPatentsData,
+  selectPatentsLoading,
+  selectProductsData,
+  selectProductsLoading,
+  selectProfilesData,
+  selectProfilesLoading,
+  selectProjectsData,
+  selectProjectsLoading,
+}

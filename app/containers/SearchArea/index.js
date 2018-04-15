@@ -7,10 +7,10 @@ import { withRouter } from 'react-router-dom'
 import messages from './messages'
 import { MenuItem } from 'material-ui/Menu'
 import { createStructuredSelector } from 'reselect'
-import { selectQuery, selectType } from './selectors'
-import injectReducer from '../../utils/injectReducer'
-import reducer from './reducer'
-import { changeType, changeQuery } from './actions'
+import { selectQuery } from '../../containers/FormSearchInput/QueryInput/selectors'
+import { changeQuery } from '../../containers/FormSearchInput/QueryInput/actions'
+import { selectDataType } from '../../containers/FormSearchInput/DataTypeSelect/selectors'
+import { changeDataType } from '../../containers/FormSearchInput/DataTypeSelect/actions'
 import {
   Wrapper,
   Title,
@@ -33,14 +33,15 @@ class SearchArea extends React.PureComponent {
     this.props.dispatchChangeQuery(e.target.value)
   }
 
-  handleSubmit = () => {
-    const { history, type, query } = this.props
+  handleSubmit = e => {
+    e.preventDefault()
+    const { history, dataType, query } = this.props
     const queryInput = checkInputHasValue(query) ? `&query=${query}` : ''
-    history.push(`/search/?data_type=${type}${queryInput}`)
+    history.push(`/search/?data_type=${dataType}${queryInput}`)
   }
 
   render() {
-    const { type, intl } = this.props
+    const { dataType, intl } = this.props
     return (
       <Wrapper>
         <Container>
@@ -52,7 +53,7 @@ class SearchArea extends React.PureComponent {
               onChange={this.handleChangeQuery}
               placeholder={intl.formatMessage(messages.placeholder)}
             />
-            <MaterialSelect value={type} onChange={this.handleChangeType}>
+            <MaterialSelect value={dataType} onChange={this.handleChangeType}>
               <MenuItem value={ALL_VALUE}>
                 <em><FormattedMessage {...messages.all} /></em>
               </MenuItem>
@@ -73,12 +74,12 @@ class SearchArea extends React.PureComponent {
 }
 
 SearchArea.propTypes = {
-  type: PropTypes.string,
+  dataType: PropTypes.string,
   query: PropTypes.string,
 }
 
 const mapStateToProps = () => createStructuredSelector({
-  type: selectType(),
+  dataType: selectDataType(),
   query: selectQuery(),
 })
 
@@ -87,15 +88,13 @@ const mapDispatchToProps = dispatch => ({
     dispatch(changeQuery(value))
   },
   dispatchChangeType: value => {
-    dispatch(changeType(value))
+    dispatch(changeDataType(value))
   },
 })
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps)
-const withReducer = injectReducer({ key: 'searchArea', reducer })
 
 export default compose(
-  withReducer,
   withConnect,
   withRouter,
   injectIntl,

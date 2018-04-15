@@ -30,7 +30,7 @@ export class HotProfileSlider extends React.PureComponent {
   }
 
   renderLoading = () => (
-    <CircularLoading size={90} wrapperHeight={300} />
+    <CircularLoading haveBackground size={90} wrapperHeight={300} />
   )
 
   renderProfilesSlider = data => (

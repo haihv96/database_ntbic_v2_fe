@@ -63,7 +63,7 @@ class PieChart extends React.PureComponent {
   )
 
   renderLoading = () => (
-    <CircularLoading size={100} wrapperHeight={400} />
+    <CircularLoading size={100} wrapperHeight={400} haveBackground />
   )
 
   renderPieChart = () => {

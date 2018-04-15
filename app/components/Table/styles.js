@@ -16,7 +16,9 @@ const TableHeadCell = styled(TableCell) `
   && {
     color: ${vars.white};
     font-size: 15px;
+    text-align: center;
     font-weight: bold;
+    width: ${props => props.width ? `${props.width}%` : 'auto'}
   }
 `
 
@@ -24,6 +26,7 @@ const CustomTableCell = styled(TableCell)`
   && {
     font-size: 14px;
     font-weight: ${props => props.bold ? 'bold' : 'normal'};
+    text-align: ${props => props.center ? 'center' : 'left'};
   }
 `
 
