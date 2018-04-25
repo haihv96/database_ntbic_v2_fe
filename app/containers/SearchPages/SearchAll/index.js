@@ -28,7 +28,7 @@ import CircularLoading from '../../../components/CircularLoading'
 import ProjectsTable from '../../../components/ProjectsTable'
 import PatentsTable from '../../../components/PatentsTable'
 import ProductsTable from '../../../components/ProductsTable'
-import CompaniesTable from '../../../components/companiesTable'
+import CompaniesTable from '../../../components/CompaniesTable'
 
 export class SearchAll extends React.PureComponent {
   componentWillMount() {

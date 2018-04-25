@@ -76,5 +76,10 @@
   "app.containers.SearchPages.SearchAll.patents": "Phát minh, sáng chế",
   "app.containers.SearchPages.SearchAll.products": "Sản phẩm KH&CN",
   "app.containers.SearchPages.SearchAll.profiles": "Chuyên gia KH&CN",
-  "app.containers.SearchPages.SearchAll.projects": "Dự án KH&CN"
+  "app.containers.SearchPages.SearchAll.projects": "Dự án KH&CN",
+  "app.containers.SearchPages.SearchCompanies.companies": "doanh nghiệp KH&CN",
+  "app.containers.SearchPages.SearchPatents.patents": "phát minh, sáng chế  KH&CN",
+  "app.containers.SearchPages.SearchProducts.products": "sản phẩm  KH&CN",
+  "app.containers.SearchPages.SearchProfiles.profiles": "chuyên gia  KH&CN",
+  "app.containers.SearchPages.SearchProject.projects": "đề tài, dự án KH&CN"
 }

@@ -1,0 +1,2 @@
+export const LOAD_COMPANIES = 'app/SearchAll/LOAD_COMPANIES'
+export const LOAD_COMPANIES_SUCCESS = 'app/SearchAll/LOAD_COMPANIES_SUCCESS'

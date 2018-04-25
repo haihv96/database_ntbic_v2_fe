@@ -7,6 +7,10 @@ import { createStructuredSelector } from 'reselect'
 import QueryString from 'querystring'
 import SearchAll from './SearchAll'
 import SearchProfiles from './SearchProfiles'
+import SearchProjects from './SearchProjects'
+import SearchPatents from './SearchPatents'
+import SearchProducts from './SearchProducts'
+import SearchCompanies from './SearchCompanies'
 import { ALL_VALUE } from '../../globals/constants'
 import { Main } from '../../globals/components'
 import FormSearchInput from '../FormSearchInput'
@@ -26,6 +30,14 @@ const settingSearchPage = dataType => {
       return SearchAll
     case 'profiles':
       return SearchProfiles
+    case 'projects':
+      return SearchProjects
+    case 'patents':
+      return SearchPatents
+    case 'products':
+      return SearchProducts
+    case 'companies':
+      return SearchCompanies
     default:
       return SearchAll
   }

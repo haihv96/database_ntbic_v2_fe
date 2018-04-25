@@ -10,28 +10,28 @@ import reducer from './reducer'
 import saga from './saga'
 import { AminateFadeInWrapper, WapperLoading } from './styles'
 import {
-  selectProfilesLoading,
-  selectProfilesData,
+  selectProductsLoading,
+  selectProductsData,
 } from './selectors'
-import { loadProfiles } from './actions'
+import { loadProducts } from './actions'
 import SearchResultCate from '../../../components/SearchResultCate'
-import ProfilesTable from '../../../components/ProfilesTable'
+import ProductsTable from '../../../components/ProductsTable'
 import CircularLoading from '../../../components/CircularLoading'
 
-export class SearchProfiles extends React.PureComponent {
+export class SearchProducts extends React.PureComponent {
   componentWillMount() {
-    this.loadProfilesData()
+    this.loadProductsData()
   }
 
   componentWillReceiveProps({ searchQuery }) {
     if (this.props.searchQuery !== searchQuery) {
-      this.loadProfilesData()
+      this.loadProductsData()
     }
   }
 
-  loadProfilesData = () => {
-    const { dispatchLoadProfiles } = this.props
-    dispatchLoadProfiles()
+  loadProductsData = () => {
+    const { dispatchLoadProducts } = this.props
+    dispatchLoadProducts()
   }
 
   renderLoading = () => (
@@ -40,49 +40,49 @@ export class SearchProfiles extends React.PureComponent {
     </WapperLoading>
   )
 
-  renderProfiles = data => (
+  renderProducts = data => (
     <AminateFadeInWrapper>
       <SearchResultCate
-        dataType={this.props.intl.formatMessage(messages.profiles)}
+        dataType={this.props.intl.formatMessage(messages.products)}
         results={10}
         time={0.3824782342}
       />
-      <ProfilesTable data={data} />
+      <ProductsTable data={data} />
     </AminateFadeInWrapper>
   )
 
   render() {
     const {
-      profilesLoading, profilesData,
+      productsLoading, productsData,
     } = this.props
     return (
       <div>
-        {profilesLoading ? this.renderLoading() : this.renderProfiles(profilesData)}
+        {productsLoading ? this.renderLoading() : this.renderProducts(productsData)}
       </div>
     )
   }
 }
 
-SearchProfiles.propTypes = {}
+SearchProducts.propTypes = {}
 
 const mapStateToProps = createStructuredSelector({
-  profilesLoading: selectProfilesLoading(),
-  profilesData: selectProfilesData(),
+  productsLoading: selectProductsLoading(),
+  productsData: selectProductsData(),
 })
 
 const mapDispatchToProps = dispatch => ({
-  dispatchLoadProfiles: () => {
-    dispatch(loadProfiles())
+  dispatchLoadProducts: () => {
+    dispatch(loadProducts())
   },
 })
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps)
-const withReducer = injectReducer({ key: 'searchProfiles', reducer })
-const withSaga = injectSaga({ key: 'searchProfiles', saga })
+const withReducer = injectReducer({ key: 'searchProducts', reducer })
+const withSaga = injectSaga({ key: 'searchProducts', saga })
 
 export default compose(
   withReducer,
   withSaga,
   withConnect,
   injectIntl,
-)(SearchProfiles)
+)(SearchProducts)

@@ -76,5 +76,10 @@
   "app.containers.SearchPages.SearchAll.patents": "",
   "app.containers.SearchPages.SearchAll.products": "",
   "app.containers.SearchPages.SearchAll.profiles": "",
-  "app.containers.SearchPages.SearchAll.projects": ""
+  "app.containers.SearchPages.SearchAll.projects": "",
+  "app.containers.SearchPages.SearchCompanies.companies": "",
+  "app.containers.SearchPages.SearchPatents.patents": "",
+  "app.containers.SearchPages.SearchProducts.products": "",
+  "app.containers.SearchPages.SearchProfiles.profiles": "",
+  "app.containers.SearchPages.SearchProject.projects": ""
 }
