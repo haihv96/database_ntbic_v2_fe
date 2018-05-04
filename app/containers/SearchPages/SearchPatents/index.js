@@ -3,20 +3,23 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { injectIntl } from 'react-intl'
 import { compose } from 'redux'
+import _ from 'lodash'
 import messages from './messages'
 import injectSaga from '../../../utils/injectSaga'
 import injectReducer from '../../../utils/injectReducer'
 import reducer from './reducer'
 import saga from './saga'
-import { AminateFadeInWrapper, WapperLoading } from './styles'
+import { Wrapper, AminateFadeInWrapper, WapperLoading } from './styles'
 import {
   selectPatentsLoading,
   selectPatentsData,
 } from './selectors'
 import { loadPatents } from './actions'
+import { changePaginationParam } from '../../FormSearchInput/PaginationParam/actions'
 import SearchResultCate from '../../../components/SearchResultCate'
 import PatentsTable from '../../../components/PatentsTable'
 import CircularLoading from '../../../components/CircularLoading'
+import TablePagination from '../../../components/TablePagination'
 
 export class SearchPatents extends React.PureComponent {
   componentWillMount() {
@@ -36,29 +39,29 @@ export class SearchPatents extends React.PureComponent {
 
   renderLoading = () => (
     <WapperLoading>
-      <CircularLoading haveBackground wrapperHeight={300} size={100} />
+      <CircularLoading haveBackground size={200} />
     </WapperLoading>
   )
 
-  renderPatents = data => (
+  renderPatents = patentsData => (
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.patents)}
         results={10}
         time={0.3824782342}
       />
-      <PatentsTable data={data} />
+      <PatentsTable data={patentsData.data} />
+      <TablePagination total={patentsData.data.total} />
     </AminateFadeInWrapper>
   )
 
   render() {
-    const {
-      patentsLoading, patentsData,
-    } = this.props
+    const { patentsLoading, patentsData } = this.props
     return (
-      <div>
-        {patentsLoading ? this.renderLoading() : this.renderPatents(patentsData)}
-      </div>
+      <Wrapper>
+        {patentsLoading && this.renderLoading()}
+        {_.isEmpty(patentsData) || this.renderPatents(patentsData)}
+      </Wrapper>
     )
   }
 }
@@ -73,6 +76,9 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
   dispatchLoadPatents: () => {
     dispatch(loadPatents())
+  },
+  dispatchChangePaginationParam: value => {
+    dispatch(changePaginationParam(value))
   },
 })
 

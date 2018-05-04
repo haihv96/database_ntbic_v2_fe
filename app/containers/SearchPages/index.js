@@ -23,6 +23,9 @@ import { changePatentType } from '../FormSearchInput/PatentTypeSelect/actions'
 import { changeProvince } from '../FormSearchInput/ProvinceSelect/actions'
 import { changeTechnologyCategory } from '../FormSearchInput/TechnologyCategorySelect/actions'
 import { changeSpecialization } from '../FormSearchInput/SpecializationSelect/actions'
+import { changePaginationParam, resetPaginationParam } from '../FormSearchInput/PaginationParam/actions'
+import { changeQueryAPI } from '../FormSearchInput/actions'
+import { calQueryAPI } from './utils'
 
 const settingSearchPage = dataType => {
   switch (dataType) {
@@ -66,10 +69,13 @@ class SearchPages extends React.PureComponent {
       dispatchChangeSpecialization,
       dispatchChangeQuery,
       dispatchChangeTechnologyCategory,
+      dispatchChangePaginationParam,
+      dispatchChangeQueryAPI,
+      dispatchResetPaginationParam,
     } = this.props
     const {
       query, academic_title_id, province_id, data_type, base_technology_category_id,
-      patent_type_id, specialization_id, technology_category_id,
+      patent_type_id, specialization_id, technology_category_id, page,
     } = QueryString.parse(_.replace(locationSearch, '?', ''))
     if (data_type) {
       dispatchChangeDataType(data_type)
@@ -82,6 +88,15 @@ class SearchPages extends React.PureComponent {
     if (specialization_id) dispatchChangeSpecialization(parseInt(specialization_id, 10))
     if (technology_category_id) dispatchChangeTechnologyCategory(parseInt(technology_category_id, 10))
     if (base_technology_category_id) dispatchChangeBaseTechnologyCategory(parseInt(base_technology_category_id, 10))
+    if (page) {
+      dispatchChangePaginationParam(parseInt(page, 10))
+    } else {
+      dispatchResetPaginationParam()
+    }
+    dispatchChangeQueryAPI(calQueryAPI({
+      data_type, query, technology_category_id, province_id, academic_title_id,
+      base_technology_category_id, specialization_id, patent_type_id, page,
+    }))
   }
 
   render() {
@@ -125,6 +140,15 @@ const mapDispatchToProps = dispatch => ({
   },
   dispatchChangeTechnologyCategory: value => {
     dispatch(changeTechnologyCategory(value))
+  },
+  dispatchChangePaginationParam: value => {
+    dispatch(changePaginationParam(value))
+  },
+  dispatchChangeQueryAPI: value => {
+    dispatch(changeQueryAPI(value))
+  },
+  dispatchResetPaginationParam: () => {
+    dispatch(resetPaginationParam())
   },
 })
 

@@ -49,7 +49,6 @@ class AcademicTitleSelect extends React.PureComponent {
 
   render() {
     const { loading, data, value } = this.props
-    console.log(value);
     return (
       loading ? this.renderLoading() : (
         data.length && this.renderSelectField(data, value) || null

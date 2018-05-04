@@ -3,20 +3,23 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { injectIntl } from 'react-intl'
 import { compose } from 'redux'
+import _ from 'lodash'
 import messages from './messages'
 import injectSaga from '../../../utils/injectSaga'
 import injectReducer from '../../../utils/injectReducer'
 import reducer from './reducer'
 import saga from './saga'
-import { AminateFadeInWrapper, WapperLoading } from './styles'
+import { Wrapper, AminateFadeInWrapper, WapperLoading } from './styles'
 import {
   selectProfilesLoading,
   selectProfilesData,
 } from './selectors'
 import { loadProfiles } from './actions'
+import { changePaginationParam } from '../../FormSearchInput/PaginationParam/actions'
 import SearchResultCate from '../../../components/SearchResultCate'
 import ProfilesTable from '../../../components/ProfilesTable'
 import CircularLoading from '../../../components/CircularLoading'
+import TablePagination from '../../../components/TablePagination'
 
 export class SearchProfiles extends React.PureComponent {
   componentWillMount() {
@@ -36,29 +39,29 @@ export class SearchProfiles extends React.PureComponent {
 
   renderLoading = () => (
     <WapperLoading>
-      <CircularLoading haveBackground wrapperHeight={300} size={100} />
+      <CircularLoading haveBackground size={200} />
     </WapperLoading>
   )
 
-  renderProfiles = data => (
+  renderProfiles = profilesData => (
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.profiles)}
         results={10}
         time={0.3824782342}
       />
-      <ProfilesTable data={data} />
+      <ProfilesTable data={profilesData.data} />
+      <TablePagination total={profilesData.data.total} />
     </AminateFadeInWrapper>
   )
 
   render() {
-    const {
-      profilesLoading, profilesData,
-    } = this.props
+    const { profilesLoading, profilesData } = this.props
     return (
-      <div>
-        {profilesLoading ? this.renderLoading() : this.renderProfiles(profilesData)}
-      </div>
+      <Wrapper>
+        {profilesLoading && this.renderLoading()}
+        {_.isEmpty(profilesData) || this.renderProfiles(profilesData)}
+      </Wrapper>
     )
   }
 }
@@ -73,6 +76,9 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
   dispatchLoadProfiles: () => {
     dispatch(loadProfiles())
+  },
+  dispatchChangePaginationParam: value => {
+    dispatch(changePaginationParam(value))
   },
 })
 

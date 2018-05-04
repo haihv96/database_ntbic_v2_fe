@@ -3,20 +3,24 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { injectIntl } from 'react-intl'
 import { compose } from 'redux'
+import _ from 'lodash'
+import { animateScroll } from 'react-scroll'
 import messages from './messages'
 import injectSaga from '../../../utils/injectSaga'
 import injectReducer from '../../../utils/injectReducer'
 import reducer from './reducer'
 import saga from './saga'
-import { AminateFadeInWrapper, WapperLoading } from './styles'
+import { Wrapper, AminateFadeInWrapper, WapperLoading } from './styles'
 import {
   selectCompaniesLoading,
   selectCompaniesData,
 } from './selectors'
 import { loadCompanies } from './actions'
+import { changePaginationParam } from '../../FormSearchInput/PaginationParam/actions'
 import SearchResultCate from '../../../components/SearchResultCate'
 import CompaniesTable from '../../../components/CompaniesTable'
 import CircularLoading from '../../../components/CircularLoading'
+import TablePagination from '../../../components/TablePagination'
 
 export class SearchCompanies extends React.PureComponent {
   componentWillMount() {
@@ -36,29 +40,29 @@ export class SearchCompanies extends React.PureComponent {
 
   renderLoading = () => (
     <WapperLoading>
-      <CircularLoading haveBackground wrapperHeight={300} size={100} />
+      <CircularLoading haveBackground size={200} />
     </WapperLoading>
   )
 
-  renderCompanies = data => (
+  renderCompanies = companiesData => (
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.companies)}
         results={10}
         time={0.3824782342}
       />
-      <CompaniesTable data={data} />
+      <CompaniesTable data={companiesData.data} />
+      <TablePagination total={companiesData.data.total} />
     </AminateFadeInWrapper>
   )
 
   render() {
-    const {
-      companiesLoading, companiesData,
-    } = this.props
+    const { companiesLoading, companiesData } = this.props
     return (
-      <div>
-        {companiesLoading ? this.renderLoading() : this.renderCompanies(companiesData)}
-      </div>
+      <Wrapper>
+        {companiesLoading && this.renderLoading()}
+        {_.isEmpty(companiesData) || this.renderCompanies(companiesData)}
+      </Wrapper>
     )
   }
 }
@@ -73,6 +77,9 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
   dispatchLoadCompanies: () => {
     dispatch(loadCompanies())
+  },
+  dispatchChangePaginationParam: value => {
+    dispatch(changePaginationParam(value))
   },
 })
 

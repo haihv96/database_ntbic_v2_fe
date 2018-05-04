@@ -3,20 +3,23 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { injectIntl } from 'react-intl'
 import { compose } from 'redux'
+import _ from 'lodash'
 import messages from './messages'
 import injectSaga from '../../../utils/injectSaga'
 import injectReducer from '../../../utils/injectReducer'
 import reducer from './reducer'
 import saga from './saga'
-import { AminateFadeInWrapper, WapperLoading } from './styles'
+import { Wrapper, AminateFadeInWrapper, WapperLoading } from './styles'
 import {
   selectProductsLoading,
   selectProductsData,
 } from './selectors'
 import { loadProducts } from './actions'
+import { changePaginationParam } from '../../FormSearchInput/PaginationParam/actions'
 import SearchResultCate from '../../../components/SearchResultCate'
 import ProductsTable from '../../../components/ProductsTable'
 import CircularLoading from '../../../components/CircularLoading'
+import TablePagination from '../../../components/TablePagination'
 
 export class SearchProducts extends React.PureComponent {
   componentWillMount() {
@@ -36,29 +39,29 @@ export class SearchProducts extends React.PureComponent {
 
   renderLoading = () => (
     <WapperLoading>
-      <CircularLoading haveBackground wrapperHeight={300} size={100} />
+      <CircularLoading haveBackground size={200} />
     </WapperLoading>
   )
 
-  renderProducts = data => (
+  renderProducts = productsData => (
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.products)}
         results={10}
         time={0.3824782342}
       />
-      <ProductsTable data={data} />
+      <ProductsTable data={productsData.data} />
+      <TablePagination total={productsData.data.total} />
     </AminateFadeInWrapper>
   )
 
   render() {
-    const {
-      productsLoading, productsData,
-    } = this.props
+    const { productsLoading, productsData } = this.props
     return (
-      <div>
-        {productsLoading ? this.renderLoading() : this.renderProducts(productsData)}
-      </div>
+      <Wrapper>
+        {productsLoading && this.renderLoading()}
+        {_.isEmpty(productsData) || this.renderProducts(productsData)}
+      </Wrapper>
     )
   }
 }
@@ -73,6 +76,9 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
   dispatchLoadProducts: () => {
     dispatch(loadProducts())
+  },
+  dispatchChangePaginationParam: value => {
+    dispatch(changePaginationParam(value))
   },
 })
 

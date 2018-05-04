@@ -3,20 +3,23 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { injectIntl } from 'react-intl'
 import { compose } from 'redux'
+import _ from 'lodash'
 import messages from './messages'
 import injectSaga from '../../../utils/injectSaga'
 import injectReducer from '../../../utils/injectReducer'
 import reducer from './reducer'
 import saga from './saga'
-import { AminateFadeInWrapper, WapperLoading } from './styles'
+import { Wrapper, AminateFadeInWrapper, WapperLoading } from './styles'
 import {
   selectProjectsLoading,
   selectProjectsData,
 } from './selectors'
 import { loadProjects } from './actions'
+import { changePaginationParam } from '../../FormSearchInput/PaginationParam/actions'
 import SearchResultCate from '../../../components/SearchResultCate'
 import ProjectsTable from '../../../components/ProjectsTable'
 import CircularLoading from '../../../components/CircularLoading'
+import TablePagination from '../../../components/TablePagination'
 
 export class SearchProjects extends React.PureComponent {
   componentWillMount() {
@@ -36,29 +39,29 @@ export class SearchProjects extends React.PureComponent {
 
   renderLoading = () => (
     <WapperLoading>
-      <CircularLoading haveBackground wrapperHeight={300} size={100} />
+      <CircularLoading haveBackground size={200} />
     </WapperLoading>
   )
 
-  renderProjects = data => (
+  renderProjects = projectsData => (
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.projects)}
         results={10}
         time={0.3824782342}
       />
-      <ProjectsTable data={data} />
+      <ProjectsTable data={projectsData.data} />
+      <TablePagination total={projectsData.data.total} />
     </AminateFadeInWrapper>
   )
 
   render() {
-    const {
-      projectsLoading, projectsData,
-    } = this.props
+    const { projectsLoading, projectsData } = this.props
     return (
-      <div>
-        {projectsLoading ? this.renderLoading() : this.renderProjects(projectsData)}
-      </div>
+      <Wrapper>
+        {projectsLoading && this.renderLoading()}
+        {_.isEmpty(projectsData) || this.renderProjects(projectsData)}
+      </Wrapper>
     )
   }
 }
@@ -73,6 +76,9 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
   dispatchLoadProjects: () => {
     dispatch(loadProjects())
+  },
+  dispatchChangePaginationParam: value => {
+    dispatch(changePaginationParam(value))
   },
 })
 

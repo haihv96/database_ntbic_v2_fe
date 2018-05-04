@@ -15,7 +15,7 @@ const CustomTableRow = styled(TableRow) `
 
 const TableHeadCell = styled(TableCell) `
   && {
-    color: ${vars.black};
+    color: ${vars.white};
     font-size: 15px;
     text-align: center;
     font-weight: bold;

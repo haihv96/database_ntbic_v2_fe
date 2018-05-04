@@ -1,14 +1,14 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
+import { call, put, takeLatest, select } from 'redux-saga/effects'
 import { LOAD_PATENTS } from './constants'
 import { patentsLoaded } from './actions'
 import request from '../../../utils/request'
-import { compressPathSearchRequest } from '../../SearchPages/utils'
+import { queryAPIValue } from '../../FormSearchInput/selectors'
 
 export function* getPatents() {
   try {
-    const query = yield compressPathSearchRequest()
+    const query = yield select(queryAPIValue())
     const response = yield call(request, query)
-    yield put(patentsLoaded(response.data))
+    yield put(patentsLoaded(response))
   } catch (err) {
     console.log(err)
   }

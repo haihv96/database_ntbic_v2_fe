@@ -11,4 +11,7 @@ injectGlobal`
   body {
     font-family: 'Lato', sans-serif;
   }
+  .page-link {
+    border-radius: 0 !important;
+  }
 `;

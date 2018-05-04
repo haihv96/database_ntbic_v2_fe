@@ -6,7 +6,7 @@ import {
 
 const initialState = fromJS({
   loading: false,
-  data: [],
+  data: {},
 })
 
 const searchCompaniesReducer = (state = initialState, action) => {

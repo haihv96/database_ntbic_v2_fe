@@ -36,7 +36,7 @@ const ProfilesTable = ({ data }) => (
               </CustomTableCell>
               <CustomTableCell center bold>{entry.academic_title}.{entry.name}</CustomTableCell>
               <CustomTableCell>{entry.agency}</CustomTableCell>
-              <CustomTableCell>{entry.research_for}</CustomTableCell>
+              <CustomTableCell dangerouslySetInnerHTML={{ __html: entry.research_for }} />
               <CustomTableCell center>{entry.province}</CustomTableCell>
             </CustomTableRow>
           )
