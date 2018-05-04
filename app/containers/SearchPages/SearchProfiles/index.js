@@ -51,7 +51,7 @@ export class SearchProfiles extends React.PureComponent {
         time={0.3824782342}
       />
       <ProfilesTable data={profilesData.data} />
-      <TablePagination total={profilesData.data.total} />
+      <TablePagination total={profilesData.meta.last_page} />
     </AminateFadeInWrapper>
   )
 

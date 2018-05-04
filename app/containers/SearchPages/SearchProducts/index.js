@@ -51,7 +51,7 @@ export class SearchProducts extends React.PureComponent {
         time={0.3824782342}
       />
       <ProductsTable data={productsData.data} />
-      <TablePagination total={productsData.data.total} />
+      <TablePagination total={productsData.meta.last_page} />
     </AminateFadeInWrapper>
   )
 
