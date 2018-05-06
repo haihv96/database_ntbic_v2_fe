@@ -2,10 +2,6 @@ import styled from 'styled-components'
 import vars from '../../globals/vars'
 import { CustomTableCell, CustomTableRow } from '../Table/styles'
 
-const Bold = styled.span`
-  font-weight: bold;
-`
-
 const HighlightTableRow = styled(CustomTableRow)`
 `
 
@@ -15,6 +11,12 @@ const HighlightTableCell = styled(CustomTableCell)`
   }
   p {
     display: inline;
+  }
+  strong {
+     font-weight: normal;
+  }
+  img {
+    display: none;
   }
   background: ${vars.white};
   && {
@@ -38,4 +40,13 @@ const WrapperTableCell = styled(CustomTableCell)`
   }
 `
 
-export { Bold, HighlightTableCell, HighlightTableRow, WrapperTableCell }
+const LimitString = styled.div`
+    max-height: 60px;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+`
+
+export { HighlightTableCell, HighlightTableRow, WrapperTableCell, LimitString }

@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import { calFieldValue } from './utils'
-import { WrapperTableCell, HighlightTableCell, HighlightTableRow } from './styles'
+import { WrapperTableCell, HighlightTableCell, HighlightTableRow, LimitString } from './styles'
 
 class HighlightResultTable extends React.PureComponent {
   render() {
@@ -30,7 +30,7 @@ class HighlightResultTable extends React.PureComponent {
               {value}
             </HighlightTableCell>
             <HighlightTableCell>
-              <div dangerouslySetInnerHTML={{ __html: calFieldValue(entry[value]) }} />
+              <LimitString dangerouslySetInnerHTML={{ __html: calFieldValue(entry[value]) }} />
             </HighlightTableCell>
           </HighlightTableRow>
         ))}

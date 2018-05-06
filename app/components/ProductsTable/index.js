@@ -17,7 +17,7 @@ const ProductsTable = ({ data }) => (
       <CustomTableHead>
         <TableRow>
           <TableHeadCell><FormattedMessage {...messages.thumb} /></TableHeadCell>
-          <TableHeadCell><FormattedMessage {...messages.name} /></TableHeadCell>
+          <TableHeadCell width={30}><FormattedMessage {...messages.name} /></TableHeadCell>
           <TableHeadCell><FormattedMessage {...messages.base_technology_category} /></TableHeadCell>
           <TableHeadCell>Search match results</TableHeadCell>
         </TableRow>
