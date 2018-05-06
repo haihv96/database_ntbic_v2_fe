@@ -52,7 +52,7 @@ export class SearchCompanies extends React.PureComponent {
         time={0.3824782342}
       />
       <CompaniesTable data={companiesData.data} />
-      <TablePagination total={companiesData.meta.last_page} />
+      <TablePagination total={companiesData.pages} />
     </AminateFadeInWrapper>
   )
 

@@ -5,6 +5,8 @@ import { FormattedMessage } from 'react-intl'
 import messages from './messages'
 import Paper from 'material-ui/Paper'
 import Table, { TableBody, TableRow } from 'material-ui/Table'
+import HighlightResultTable from '../../components/HighlightResultTable'
+import { calFieldValue } from '../../components/HighlightResultTable/utils'
 import { CustomTableHead, TableHeadCell, CustomTableCell, CustomTableRow } from '../Table/styles'
 
 const ProjectsTable = ({ data }) => (
@@ -12,22 +14,20 @@ const ProjectsTable = ({ data }) => (
     <Table>
       <CustomTableHead>
         <TableRow>
-          <TableHeadCell width={40}><FormattedMessage {...messages.name} /></TableHeadCell>
+          <TableHeadCell><FormattedMessage {...messages.name} /></TableHeadCell>
           <TableHeadCell><FormattedMessage {...messages.specialization} /></TableHeadCell>
-          <TableHeadCell width={15}><FormattedMessage {...messages.project_code} /></TableHeadCell>
           <TableHeadCell><FormattedMessage {...messages.author} /></TableHeadCell>
-          <TableHeadCell width={15}><FormattedMessage {...messages.close_date} /></TableHeadCell>
+          <TableHeadCell>Search match results</TableHeadCell>
         </TableRow>
       </CustomTableHead>
       <TableBody>
         {_.map(data, entry => {
           return (
             <CustomTableRow key={entry.id}>
-              <CustomTableCell bold>{entry.name}</CustomTableCell>
+              <CustomTableCell dangerouslySetInnerHTML={{ __html: calFieldValue(entry.name) }} />
               <CustomTableCell>{entry.specialization}</CustomTableCell>
-              <CustomTableCell center>{entry.project_code}</CustomTableCell>
-              <CustomTableCell>{entry.author}</CustomTableCell>
-              <CustomTableCell center>{entry.close_date}</CustomTableCell>
+              <CustomTableCell dangerouslySetInnerHTML={{ __html: calFieldValue(entry.author)}} />
+              <HighlightResultTable entry={entry} attr={['description', 'highlights', 'operator', 'results']} />
             </CustomTableRow>
           )
         })}

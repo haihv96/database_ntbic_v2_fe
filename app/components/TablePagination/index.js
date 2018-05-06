@@ -11,7 +11,7 @@ class TablePagination extends React.PureComponent {
     const searchObject = queryString.parse(searchQuery)
     const page = selected + 1
     this.props.history.push(`/search/?${queryString.stringify({ ...searchObject, page })}`)
-    animateScroll.scrollToTop({ duration: 500 })
+    animateScroll.scrollToTop({ duration: 1000 })
   }
 
   render() {

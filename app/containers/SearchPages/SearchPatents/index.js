@@ -51,7 +51,7 @@ export class SearchPatents extends React.PureComponent {
         time={0.3824782342}
       />
       <PatentsTable data={patentsData.data} />
-      <TablePagination total={patentsData.meta.last_page} />
+      <TablePagination total={patentsData.pages} />
     </AminateFadeInWrapper>
   )
 

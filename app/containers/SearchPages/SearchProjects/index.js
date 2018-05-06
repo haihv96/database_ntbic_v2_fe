@@ -51,7 +51,7 @@ export class SearchProjects extends React.PureComponent {
         time={0.3824782342}
       />
       <ProjectsTable data={projectsData.data} />
-      <TablePagination total={projectsData.meta.last_page} />
+      <TablePagination total={projectsData.pages} />
     </AminateFadeInWrapper>
   )
 

@@ -7,6 +7,8 @@ import Paper from 'material-ui/Paper'
 import Table, { TableBody, TableRow } from 'material-ui/Table'
 import { CustomTableHead, TableHeadCell, CustomTableCell, CustomTableRow } from '../Table/styles'
 import { Img, ImgWrapper } from './styles'
+import HighlightResultTable from '../../components/HighlightResultTable'
+import { calFieldValue } from '../../components/HighlightResultTable/utils'
 import { AbsCenter } from '../../globals/components'
 
 const ProductsTable = ({ data }) => (
@@ -17,7 +19,7 @@ const ProductsTable = ({ data }) => (
           <TableHeadCell><FormattedMessage {...messages.thumb} /></TableHeadCell>
           <TableHeadCell><FormattedMessage {...messages.name} /></TableHeadCell>
           <TableHeadCell><FormattedMessage {...messages.base_technology_category} /></TableHeadCell>
-          <TableHeadCell width={15}><FormattedMessage {...messages.highlights} /></TableHeadCell>
+          <TableHeadCell>Search match results</TableHeadCell>
         </TableRow>
       </CustomTableHead>
       <TableBody>
@@ -31,9 +33,14 @@ const ProductsTable = ({ data }) => (
                   </AbsCenter>
                 </ImgWrapper>
               </CustomTableCell>
-              <CustomTableCell bold>{entry.name}</CustomTableCell>
+              <CustomTableCell
+                dangerouslySetInnerHTML={{ __html: calFieldValue(entry.name) }}
+              />
               <CustomTableCell center>{entry.base_technology_category}</CustomTableCell>
-              <CustomTableCell>{entry.highlights}</CustomTableCell>
+              <HighlightResultTable
+                entry={entry}
+                attr={['highlights', 'description', 'results']}
+              />
             </CustomTableRow>
           )
         })}

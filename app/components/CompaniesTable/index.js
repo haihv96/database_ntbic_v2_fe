@@ -8,6 +8,8 @@ import Table, { TableBody, TableRow } from 'material-ui/Table'
 import { CustomTableHead, TableHeadCell, CustomTableCell, CustomTableRow } from '../Table/styles'
 import { Img, ImgWrapper } from './styles'
 import { AbsCenter } from '../../globals/components'
+import HighlightResultTable from '../../components/HighlightResultTable'
+import { calFieldValue } from '../../components/HighlightResultTable/utils'
 
 const CompaniesTable = ({ data }) => (
   <Paper>
@@ -15,10 +17,9 @@ const CompaniesTable = ({ data }) => (
       <CustomTableHead>
         <TableRow>
           <TableHeadCell><FormattedMessage {...messages.logo} /></TableHeadCell>
-          <TableHeadCell width={30}><FormattedMessage {...messages.name} /></TableHeadCell>
-          <TableHeadCell width={20}><FormattedMessage {...messages.base_technology_category} /></TableHeadCell>
-          <TableHeadCell><FormattedMessage {...messages.headquarters} /></TableHeadCell>
-          <TableHeadCell width={15}><FormattedMessage {...messages.province} /></TableHeadCell>
+          <TableHeadCell><FormattedMessage {...messages.name} /></TableHeadCell>
+          <TableHeadCell><FormattedMessage {...messages.base_technology_category} /></TableHeadCell>
+          <TableHeadCell>Search match results</TableHeadCell>
         </TableRow>
       </CustomTableHead>
       <TableBody>
@@ -32,10 +33,15 @@ const CompaniesTable = ({ data }) => (
                   </AbsCenter>
                 </ImgWrapper>
               </CustomTableCell>
-              <CustomTableCell bold>{entry.name}</CustomTableCell>
+              <CustomTableCell
+                dangerouslySetInnerHTML={{ __html: calFieldValue(entry.name) }}
+              />
               <CustomTableCell center>{entry.base_technology_category}</CustomTableCell>
-              <CustomTableCell>{entry.headquarters}</CustomTableCell>
-              <CustomTableCell center>{entry.province}</CustomTableCell>
+              <HighlightResultTable
+                entry={entry}
+                attr={['headquarters', 'company_code', 'founder', 'industry', 'research_for',
+                  'technology_highlight', 'technology_using', 'results', 'products']}
+              />
             </CustomTableRow>
           )
         })}

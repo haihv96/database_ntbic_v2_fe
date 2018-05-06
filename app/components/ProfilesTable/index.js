@@ -7,6 +7,8 @@ import Paper from 'material-ui/Paper'
 import Table, { TableBody, TableRow } from 'material-ui/Table'
 import { CustomTableHead, TableHeadCell, CustomTableCell, CustomTableRow } from '../Table/styles'
 import { Img, ImgWrapper, ImgContainer } from './styles'
+import HighlightResultTable from '../../components/HighlightResultTable'
+import { calFieldValue } from '../../components/HighlightResultTable/utils'
 import { AbsCenter } from '../../globals/components'
 
 const ProfilesTable = ({ data }) => (
@@ -15,10 +17,9 @@ const ProfilesTable = ({ data }) => (
       <CustomTableHead>
         <TableRow>
           <TableHeadCell><FormattedMessage {...messages.image} /></TableHeadCell>
-          <TableHeadCell width={20}><FormattedMessage {...messages.name} /></TableHeadCell>
+          <TableHeadCell><FormattedMessage {...messages.name} /></TableHeadCell>
           <TableHeadCell><FormattedMessage {...messages.agency} /></TableHeadCell>
-          <TableHeadCell><FormattedMessage {...messages.research_for} /></TableHeadCell>
-          <TableHeadCell width={15}><FormattedMessage {...messages.province} /></TableHeadCell>
+          <TableHeadCell>Search match results</TableHeadCell>
         </TableRow>
       </CustomTableHead>
       <TableBody>
@@ -34,10 +35,14 @@ const ProfilesTable = ({ data }) => (
                   </AbsCenter>
                 </ImgWrapper>
               </CustomTableCell>
-              <CustomTableCell center bold>{entry.academic_title}.{entry.name}</CustomTableCell>
-              <CustomTableCell>{entry.agency}</CustomTableCell>
-              <CustomTableCell dangerouslySetInnerHTML={{ __html: entry.research_for }} />
-              <CustomTableCell center>{entry.province}</CustomTableCell>
+              <CustomTableCell
+                dangerouslySetInnerHTML={{ __html: calFieldValue(`${entry.academic_title}. ${entry.name}`) }}
+              />
+              <CustomTableCell dangerouslySetInnerHTML={{ __html: calFieldValue(entry.agency) }} />
+              <HighlightResultTable
+                entry={entry}
+                attr={['specialization', 'research_for', 'research_joined', 'research_results']}
+              />
             </CustomTableRow>
           )
         })}

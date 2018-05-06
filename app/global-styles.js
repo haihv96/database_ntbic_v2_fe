@@ -14,4 +14,8 @@ injectGlobal`
   .page-link {
     border-radius: 0 !important;
   }
+  .es-highlight {
+    font-weight: bold;
+    font-style: italic;
+  }
 `;

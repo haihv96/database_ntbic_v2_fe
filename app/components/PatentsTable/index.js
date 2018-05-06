@@ -6,6 +6,8 @@ import messages from './messages'
 import Paper from 'material-ui/Paper'
 import Table, { TableBody, TableRow } from 'material-ui/Table'
 import { CustomTableHead, TableHeadCell, CustomTableCell, CustomTableRow } from '../Table/styles'
+import HighlightResultTable from '../../components/HighlightResultTable'
+import { calFieldValue } from '../../components/HighlightResultTable/utils'
 
 const PatentsTable = ({ data }) => (
   <Paper>
@@ -13,21 +15,22 @@ const PatentsTable = ({ data }) => (
       <CustomTableHead>
         <TableRow>
           <TableHeadCell><FormattedMessage {...messages.name} /></TableHeadCell>
-          <TableHeadCell width={15}><FormattedMessage {...messages.base_technology_category} /></TableHeadCell>
-          <TableHeadCell width={15}><FormattedMessage {...messages.patent_code} /></TableHeadCell>
-          <TableHeadCell><FormattedMessage {...messages.author} /></TableHeadCell>
-          <TableHeadCell width={15}><FormattedMessage {...messages.public_date} /></TableHeadCell>
+          <TableHeadCell><FormattedMessage {...messages.base_technology_category} /></TableHeadCell>
+          <TableHeadCell>Search match results</TableHeadCell>
         </TableRow>
       </CustomTableHead>
       <TableBody>
         {_.map(data, entry => {
           return (
             <CustomTableRow key={entry.id}>
-              <CustomTableCell bold>{entry.name}</CustomTableCell>
+              <CustomTableCell
+                dangerouslySetInnerHTML={{ __html: calFieldValue(entry.name) }}
+              />
               <CustomTableCell center>{entry.base_technology_category}</CustomTableCell>
-              <CustomTableCell center>{entry.patent_code}</CustomTableCell>
-              <CustomTableCell>{entry.author}</CustomTableCell>
-              <CustomTableCell center>{entry.public_date}</CustomTableCell>
+              <HighlightResultTable
+                entry={entry}
+                attr={['patent_code', 'owner', 'author', 'highlights', 'description']}
+              />
             </CustomTableRow>
           )
         })}
