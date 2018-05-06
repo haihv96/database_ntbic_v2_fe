@@ -40,6 +40,7 @@ const ProductsTable = ({ data }) => (
               <HighlightResultTable
                 entry={entry}
                 attr={['highlights', 'description', 'results']}
+                bonusAttr={['highlights', 'description']}
               />
             </CustomTableRow>
           )

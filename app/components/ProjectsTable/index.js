@@ -26,8 +26,12 @@ const ProjectsTable = ({ data }) => (
             <CustomTableRow key={entry.id}>
               <CustomTableCell dangerouslySetInnerHTML={{ __html: calFieldValue(entry.name) }} />
               <CustomTableCell>{entry.specialization}</CustomTableCell>
-              <CustomTableCell dangerouslySetInnerHTML={{ __html: calFieldValue(entry.author)}} />
-              <HighlightResultTable entry={entry} attr={['description', 'highlights', 'operator', 'results']} />
+              <CustomTableCell dangerouslySetInnerHTML={{ __html: calFieldValue(entry.author) }} />
+              <HighlightResultTable
+                entry={entry}
+                attr={['description', 'highlights', 'operator', 'results']}
+                bonusAttr={['description', 'highlights']}
+              />
             </CustomTableRow>
           )
         })}

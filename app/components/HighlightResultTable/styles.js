@@ -24,7 +24,11 @@ const HighlightTableCell = styled(CustomTableCell)`
     && {
        font-weight: bold;
     }
-  ` : ''}
+  ` :
+  `
+    width: 100%;
+    height: 100% !important:
+  `}
 `
 
 const WrapperTableCell = styled(CustomTableCell)`

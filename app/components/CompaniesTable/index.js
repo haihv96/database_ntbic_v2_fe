@@ -41,6 +41,7 @@ const CompaniesTable = ({ data }) => (
                 entry={entry}
                 attr={['headquarters', 'company_code', 'founder', 'industry', 'research_for',
                   'technology_highlight', 'technology_using', 'results', 'products']}
+                bonusAttr={['founder', 'industry']}
               />
             </CustomTableRow>
           )

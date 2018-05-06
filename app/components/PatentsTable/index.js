@@ -30,6 +30,7 @@ const PatentsTable = ({ data }) => (
               <HighlightResultTable
                 entry={entry}
                 attr={['patent_code', 'owner', 'author', 'highlights', 'description']}
+                bonusAttr={['patent_code', 'owner']}
               />
             </CustomTableRow>
           )

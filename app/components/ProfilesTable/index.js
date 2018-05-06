@@ -42,6 +42,7 @@ const ProfilesTable = ({ data }) => (
               <HighlightResultTable
                 entry={entry}
                 attr={['specialization', 'research_for', 'research_joined', 'research_results']}
+                bonusAttr={['specialization', 'province']}
               />
             </CustomTableRow>
           )
