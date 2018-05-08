@@ -47,8 +47,8 @@ export class SearchProjects extends React.PureComponent {
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.projects)}
-        results={10}
-        time={0.3824782342}
+        results={projectsData.total}
+        time={projectsData.time}
       />
       <ProjectsTable data={projectsData.data} />
       <TablePagination total={projectsData.pages} />

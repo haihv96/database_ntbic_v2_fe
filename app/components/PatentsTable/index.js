@@ -5,7 +5,8 @@ import { FormattedMessage } from 'react-intl'
 import messages from './messages'
 import Paper from 'material-ui/Paper'
 import Table, { TableBody, TableRow } from 'material-ui/Table'
-import { CustomTableHead, TableHeadCell, CustomTableCell, CustomTableRow } from '../Table/styles'
+import { CustomTableHead, TableHeadCell, CustomTableCell } from '../Table/styles'
+import TableRowEntry from '../TableRowEntry'
 import HighlightResultTable from '../../components/HighlightResultTable'
 import { calFieldValue } from '../../components/HighlightResultTable/utils'
 
@@ -22,7 +23,7 @@ const PatentsTable = ({ data }) => (
       <TableBody>
         {_.map(data, entry => {
           return (
-            <CustomTableRow key={entry.id}>
+            <TableRowEntry key={entry.id} id={entry.id} dataType="patents">
               <CustomTableCell
                 dangerouslySetInnerHTML={{ __html: calFieldValue(entry.name) }}
               />
@@ -32,7 +33,7 @@ const PatentsTable = ({ data }) => (
                 attr={['patent_code', 'owner', 'author', 'highlights', 'description']}
                 bonusAttr={['patent_code', 'owner']}
               />
-            </CustomTableRow>
+            </TableRowEntry>
           )
         })}
       </TableBody>

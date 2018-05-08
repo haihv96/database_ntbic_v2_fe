@@ -47,8 +47,8 @@ export class SearchProducts extends React.PureComponent {
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.products)}
-        results={10}
-        time={0.3824782342}
+        results={productsData.total}
+        time={productsData.time}
       />
       <ProductsTable data={productsData.data} />
       <TablePagination total={productsData.pages} />

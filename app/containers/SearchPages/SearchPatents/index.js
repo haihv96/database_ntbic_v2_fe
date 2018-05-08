@@ -47,8 +47,8 @@ export class SearchPatents extends React.PureComponent {
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.patents)}
-        results={10}
-        time={0.3824782342}
+        results={patentsData.total}
+        time={patentsData.time}
       />
       <PatentsTable data={patentsData.data} />
       <TablePagination total={patentsData.pages} />

@@ -47,8 +47,8 @@ export class SearchProfiles extends React.PureComponent {
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.profiles)}
-        results={10}
-        time={0.3824782342}
+        results={profilesData.total}
+        time={profilesData.time}
       />
       <ProfilesTable data={profilesData.data} />
       <TablePagination total={profilesData.pages} />

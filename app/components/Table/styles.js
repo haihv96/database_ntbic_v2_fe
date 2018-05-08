@@ -11,6 +11,17 @@ const CustomTableRow = styled(TableRow) `
   &:nth-of-type(odd) {
     background: ${vars.blurGrey};
   }
+  ${props => props.entry ? `
+    && {
+      &:hover {
+        background: ${vars.blurBlue} !important;
+        cursor: pointer;
+        td:last-child td {
+           background: ${vars.blurBlue} !important;
+        }
+      }
+    }
+  `: ''}
 `
 
 const TableHeadCell = styled(TableCell) `

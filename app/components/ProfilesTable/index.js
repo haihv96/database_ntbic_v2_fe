@@ -5,7 +5,8 @@ import { FormattedMessage } from 'react-intl'
 import messages from './messages'
 import Paper from 'material-ui/Paper'
 import Table, { TableBody, TableRow } from 'material-ui/Table'
-import { CustomTableHead, TableHeadCell, CustomTableCell, CustomTableRow } from '../Table/styles'
+import { CustomTableHead, TableHeadCell, CustomTableCell } from '../Table/styles'
+import TableRowEntry from '../TableRowEntry'
 import { Img, ImgWrapper, ImgContainer } from './styles'
 import HighlightResultTable from '../../components/HighlightResultTable'
 import { calFieldValue } from '../../components/HighlightResultTable/utils'
@@ -25,7 +26,7 @@ const ProfilesTable = ({ data }) => (
       <TableBody>
         {_.map(data, entry => {
           return (
-            <CustomTableRow key={entry.id}>
+            <TableRowEntry key={entry.id} id={entry.id} dataType="profiles">
               <CustomTableCell center>
                 <ImgWrapper>
                   <AbsCenter>
@@ -44,7 +45,7 @@ const ProfilesTable = ({ data }) => (
                 attr={['specialization', 'research_for', 'research_joined', 'research_results']}
                 bonusAttr={['specialization', 'province']}
               />
-            </CustomTableRow>
+            </TableRowEntry>
           )
         })}
       </TableBody>

@@ -17,6 +17,8 @@ import {
 } from './actions'
 import request from '../../../utils/request'
 
+const defaultValue = { total: 0, time: 0 }
+
 function* getQuery() {
   const query = yield select(selectQuery())
   return checkInputHasValue(query) ? `&query=${query}` : ''
@@ -26,9 +28,9 @@ export function* getProfiles() {
   try {
     const query = yield getQuery()
     const response = yield call(request, `/profiles?per_page=5${query}`)
-    yield put(profilesLoaded(response.data))
+    yield put(profilesLoaded(response))
   } catch (err) {
-    console.log(err)
+    yield put(profilesLoaded(defaultValue))
   }
 }
 
@@ -36,9 +38,9 @@ export function* getProjects() {
   try {
     const query = yield getQuery()
     const response = yield call(request, `/projects?per_page=5${query}`)
-    yield put(projectsLoaded(response.data))
+    yield put(projectsLoaded(response))
   } catch (err) {
-    console.log(err)
+    yield put(profilesLoaded(defaultValue))
   }
 }
 
@@ -46,9 +48,9 @@ export function* getPatents() {
   try {
     const query = yield getQuery()
     const response = yield call(request, `/patents?per_page=5${query}`)
-    yield put(patentsLoaded(response.data))
+    yield put(patentsLoaded(response))
   } catch (err) {
-    console.log(err)
+    yield put(patentsLoaded(defaultValue))
   }
 }
 
@@ -57,9 +59,9 @@ export function* getProducts() {
   try {
     const query = yield getQuery()
     const response = yield call(request, `/products?per_page=5${query}`)
-    yield put(productsLoaded(response.data))
+    yield put(productsLoaded(response))
   } catch (err) {
-    console.log(err)
+    yield put(productsLoaded(defaultValue))
   }
 }
 
@@ -67,9 +69,9 @@ export function* getCompanies() {
   try {
     const query = yield getQuery()
     const response = yield call(request, `/companies?per_page=5${query}`)
-    yield put(companiesLoaded(response.data))
+    yield put(companiesLoaded(response))
   } catch (err) {
-    console.log(err)
+    yield put(companiesLoaded(defaultValue))
   }
 }
 

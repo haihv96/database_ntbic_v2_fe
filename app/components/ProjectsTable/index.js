@@ -7,14 +7,15 @@ import Paper from 'material-ui/Paper'
 import Table, { TableBody, TableRow } from 'material-ui/Table'
 import HighlightResultTable from '../../components/HighlightResultTable'
 import { calFieldValue } from '../../components/HighlightResultTable/utils'
-import { CustomTableHead, TableHeadCell, CustomTableCell, CustomTableRow } from '../Table/styles'
+import { CustomTableHead, TableHeadCell, CustomTableCell } from '../Table/styles'
+import TableRowEntry from '../TableRowEntry'
 
 const ProjectsTable = ({ data }) => (
   <Paper>
     <Table>
       <CustomTableHead>
         <TableRow>
-          <TableHeadCell><FormattedMessage {...messages.name} /></TableHeadCell>
+          <TableHeadCell width={25}><FormattedMessage {...messages.name} /></TableHeadCell>
           <TableHeadCell><FormattedMessage {...messages.specialization} /></TableHeadCell>
           <TableHeadCell><FormattedMessage {...messages.author} /></TableHeadCell>
           <TableHeadCell>Search match results</TableHeadCell>
@@ -23,8 +24,8 @@ const ProjectsTable = ({ data }) => (
       <TableBody>
         {_.map(data, entry => {
           return (
-            <CustomTableRow key={entry.id}>
-              <CustomTableCell dangerouslySetInnerHTML={{ __html: calFieldValue(entry.name) }} />
+            <TableRowEntry key={entry.id} id={entry.id} dataType="projects">
+            <CustomTableCell dangerouslySetInnerHTML={{ __html: calFieldValue(entry.name) }} />
               <CustomTableCell>{entry.specialization}</CustomTableCell>
               <CustomTableCell dangerouslySetInnerHTML={{ __html: calFieldValue(entry.author) }} />
               <HighlightResultTable
@@ -32,7 +33,7 @@ const ProjectsTable = ({ data }) => (
                 attr={['description', 'highlights', 'operator', 'results']}
                 bonusAttr={['description', 'highlights']}
               />
-            </CustomTableRow>
+            </TableRowEntry>
           )
         })}
       </TableBody>

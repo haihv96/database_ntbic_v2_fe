@@ -5,7 +5,8 @@ import { FormattedMessage } from 'react-intl'
 import messages from './messages'
 import Paper from 'material-ui/Paper'
 import Table, { TableBody, TableRow } from 'material-ui/Table'
-import { CustomTableHead, TableHeadCell, CustomTableCell, CustomTableRow } from '../Table/styles'
+import { CustomTableHead, TableHeadCell, CustomTableCell } from '../Table/styles'
+import TableRowEntry from '../TableRowEntry'
 import { Img, ImgWrapper } from './styles'
 import { AbsCenter } from '../../globals/components'
 import HighlightResultTable from '../../components/HighlightResultTable'
@@ -25,7 +26,7 @@ const CompaniesTable = ({ data }) => (
       <TableBody>
         {_.map(data, entry => {
           return (
-            <CustomTableRow key={entry.id}>
+            <TableRowEntry key={entry.id} id={entry.id} dataType="companies">
               <CustomTableCell center>
                 <ImgWrapper>
                   <AbsCenter>
@@ -43,7 +44,7 @@ const CompaniesTable = ({ data }) => (
                   'technology_highlight', 'technology_using', 'results', 'products']}
                 bonusAttr={['founder', 'industry']}
               />
-            </CustomTableRow>
+            </TableRowEntry>
           )
         })}
       </TableBody>

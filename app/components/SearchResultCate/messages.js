@@ -1,13 +1,13 @@
 import { defineMessages } from 'react-intl'
 
 export default defineMessages({
-  is: {
-    id: 'app.components.SearchResultCate.is',
-    defaultMessage: 'is',
+  found: {
+    id: 'app.components.SearchResultCate.found',
+    defaultMessage: 'Found',
   },
   on: {
     id: 'app.components.SearchResultCate.on',
-    defaultMessage: 'loading on',
+    defaultMessage: 'load on',
   },
   second: {
     id: 'app.components.SearchResultCate.second',
@@ -15,10 +15,14 @@ export default defineMessages({
   },
   baseTitleFirst: {
     id: 'app.components.SearchResultCate.baseTitleFirst',
-    defaultMessage: 'The results of',
+    defaultMessage: 'results in',
   },
   baseTitleSecond: {
     id: 'app.components.SearchResultCate.baseTitle',
     defaultMessage: 'data with keyword',
+  },
+  page: {
+    id: 'app.components.SearchResultCate.page',
+    defaultMessage: 'page',
   },
 })

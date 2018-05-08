@@ -66,10 +66,10 @@ export class SearchAll extends React.PureComponent {
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.profiles)}
-        results={10}
-        time={0.3824782342}
+        results={data.total}
+        time={data.time}
       />
-      <ProfilesTable data={data} />
+      <ProfilesTable data={data.data} />
     </AminateFadeInWrapper>
   )
 
@@ -77,10 +77,10 @@ export class SearchAll extends React.PureComponent {
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.projects)}
-        results={10}
-        time={0.3824782342}
+        results={data.total}
+        time={data.time}
       />
-      <ProjectsTable data={data} />
+      <ProjectsTable data={data.data} />
     </AminateFadeInWrapper>
   )
 
@@ -88,10 +88,10 @@ export class SearchAll extends React.PureComponent {
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.patents)}
-        results={10}
-        time={0.3824782342}
+        results={data.total}
+        time={data.time}
       />
-      <PatentsTable data={data} />
+      <PatentsTable data={data.data} />
     </AminateFadeInWrapper>
   )
 
@@ -99,10 +99,10 @@ export class SearchAll extends React.PureComponent {
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.products)}
-        results={10}
-        time={0.3824782342}
+        results={data.total}
+        time={data.time}
       />
-      <ProductsTable data={data} />
+      <ProductsTable data={data.data} />
     </AminateFadeInWrapper>
   )
 
@@ -110,10 +110,10 @@ export class SearchAll extends React.PureComponent {
     <AminateFadeInWrapper>
       <SearchResultCate
         dataType={this.props.intl.formatMessage(messages.companies)}
-        results={10}
-        time={0.3824782342}
+        results={data.total}
+        time={data.time}
       />
-      <CompaniesTable data={data} />
+      <CompaniesTable data={data.data} />
     </AminateFadeInWrapper>
   )
 

@@ -74,7 +74,7 @@ export class SearchInput extends React.PureComponent {
               <SearchIcon size={20} /><FormattedMessage {...messages.search} />
             </MaterialButton>
           </div>
-          {_.includes(['profiles', 'projects', 'companies'], dataType) && <ProvinceSelect />}
+          {_.includes(['profiles', 'companies'], dataType) && <ProvinceSelect />}
           {_.includes(['profiles'], dataType) && <AcademicTitleSelect />}
           {_.includes(['patents', 'companies', 'products'], dataType) && <BaseTechnologyCategorySelect />}
           {_.includes(['projects'], dataType) && <TechnologyCategorySelect />}

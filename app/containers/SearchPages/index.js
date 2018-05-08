@@ -11,6 +11,7 @@ import SearchProjects from './SearchProjects'
 import SearchPatents from './SearchPatents'
 import SearchProducts from './SearchProducts'
 import SearchCompanies from './SearchCompanies'
+import ModalDetail from '../ModalDetail'
 import { ALL_VALUE } from '../../globals/constants'
 import { Main } from '../../globals/components'
 import FormSearchInput from '../FormSearchInput'
@@ -105,6 +106,7 @@ class SearchPages extends React.PureComponent {
     const PageSearch = settingSearchPage(dataType)
     return (
       <Main>
+        <ModalDetail />
         <FormSearchInput />
         <PageSearch searchQuery={search} />
       </Main>
