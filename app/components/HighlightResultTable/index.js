@@ -1,5 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
+import messages from '../../globals/messages'
+import { FormattedMessage } from 'react-intl'
 import { calFieldValue } from './utils'
 import { WrapperTableCell, HighlightTableCell, HighlightTableRow, LimitString } from './styles'
 
@@ -14,7 +16,7 @@ class HighlightResultTable extends React.PureComponent {
             _.isArray(entry[value]) && (highlightCell = highlightCell + 1) &&
             <HighlightTableRow key={value}>
               <HighlightTableCell head>
-                {value}
+                {messages[value] ? <FormattedMessage {...messages[value]} /> : value}
               </HighlightTableCell>
               <HighlightTableCell>
                 <div dangerouslySetInnerHTML={{ __html: calFieldValue(entry[value]) + '...' }} />

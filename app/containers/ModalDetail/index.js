@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { FormattedMessage } from 'react-intl'
+import { injectIntl } from 'react-intl'
 import _ from 'lodash'
 import { compose } from 'redux'
 import injectReducer from '../../utils/injectReducer'
@@ -16,7 +16,7 @@ import { closeModalDetail, loadDataDetail } from './actions'
 import reducer from './reducer'
 import injectSaga from '../../utils/injectSaga'
 import saga from './saga'
-import messages from './messages'
+import messages from '../../globals/messages'
 import { DialogActions } from 'material-ui/Dialog'
 import Grow from 'material-ui/transitions/Grow'
 import { TableBody } from 'material-ui/Table'
@@ -47,15 +47,15 @@ class ModalDetail extends React.PureComponent {
     <CircularLoading wrapperHeight={200} size={100} />
   )
 
-  renderData = (data) => (
+  renderData = (data, intl, dataType) => (
     <CustomTable>
       <TableBody>
         {_.map(data, (value, key) => (
           (key !== 'id') &&
           <CustomTableRow key={key}>
-            <CustomTableCell bold dangerouslySetInnerHTML={{ __html: key }} />
+            <CustomTableCell width={20} bold dangerouslySetInnerHTML={{ __html: intl.formatMessage(messages[key]) }} />
             {
-              _.includes(['image', 'thumb', ' logo'], key) ?
+              _.includes(['image', 'thumb', 'logo'], key) ?
                 <CustomTableCell>
                   <Img src={value} alt={key} />
                 </CustomTableCell> :
@@ -68,7 +68,7 @@ class ModalDetail extends React.PureComponent {
   )
 
   render() {
-    const { isOpen, loadingData, data } = this.props
+    const { isOpen, loadingData, data, intl, dataType } = this.props
     return (
       <CustomDialog
         open={isOpen}
@@ -79,10 +79,10 @@ class ModalDetail extends React.PureComponent {
         disableEscapeKeyDown={false}
       >
         <CustomDialogTitle>
-          Profile Data
+          {messages[dataType] ? intl.formatMessage(messages[dataType]) : ''}
         </CustomDialogTitle>
         <CustomDialogContent>
-          {loadingData ? this.renderLoading() : data && this.renderData(data)}
+          {loadingData ? this.renderLoading() : data && this.renderData(data, intl, dataType)}
         </CustomDialogContent>
         <DialogActions>
           <Button onClick={this.handleCloseModal} variant="raised" color="default" autoFocus>
@@ -119,4 +119,5 @@ export default compose(
   withReducer,
   withSaga,
   withConnect,
+  injectIntl,
 )(ModalDetail)

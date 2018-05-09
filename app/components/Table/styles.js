@@ -21,7 +21,7 @@ const CustomTableRow = styled(TableRow) `
         }
       }
     }
-  `: ''}
+  ` : ''}
 `
 
 const TableHeadCell = styled(TableCell) `
@@ -43,6 +43,7 @@ const CustomTableCell = styled(({ bold, center, ...rest }) => <TableCell {...res
     font-size: 13px;
     font-weight: ${props => props.bold ? 'bold' : 'normal'};
     text-align: ${props => props.center ? 'center' : 'left'};
+    ${props => props.width ? `width: ${props.width}%` : ''};
   }
 `
 
